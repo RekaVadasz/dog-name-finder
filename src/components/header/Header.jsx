@@ -7,7 +7,7 @@ import './Header.css';
 export default function Header() {
     return (
         <header>
-            <div className='navbar'>
+            <div className='navbar-top'>
                 <div className='logo'></div>
                 <nav>
                     <ul>Névválasztó</ul>

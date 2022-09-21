@@ -11,13 +11,13 @@ header {
     justify-content: space-between;
     background-color: aquamarine;
 
-    .navbar {
+    .navbar-top {
         display: flex;
 
         .logo {
             width: 250px;
             height: 60px;
-            background-image: url('logo.png');
+            background-image: url('../../assets/logo.png');
             background-size: contain;
             background-repeat: no-repeat;
             cursor: pointer;
