@@ -27,7 +27,7 @@ export default function Footer() {
                         <img src={githubIcon} alt='github icon'></img>
                     </a>
                     <a href='https://www.linkedin.com/in/reka-vadasz/' target='blank' className='linkedin-icon'>
-                        <img src={linkedinIcon} alt='linkedin    icon'></img>
+                        <img src={linkedinIcon} alt='linkedin icon'></img>
                     </a>
                 </div>
             </div>
