@@ -1,5 +1,5 @@
 .search-section {
-  height: 800px;
+  height: 933px;
 }
 
 .search-section h2 {
@@ -12,7 +12,7 @@
 .search-section p {
   margin: 0 auto 64px auto;
   max-width: 1100px;
-  font-size: 27px;
+  font-size: 24px;
   line-height: 50px;
 }
 
@@ -37,24 +37,30 @@
 
 .search-section .search-container .search-form-container form {
   width: 500px;
-  height: 500px;
+  height: 588px;
+  padding: 23px;
   border-radius: 6px;
   background-color: #FBFAFE;
   -webkit-box-shadow: 11px 16px 20px -5px rgba(0, 0, 0, 0.09);
           box-shadow: 11px 16px 20px -5px rgba(0, 0, 0, 0.09);
-  /* gender */
-  /* size */
   /* breed */
-  /* other */
 }
 
-.search-section .search-container .search-form-container form .input-hidden {
+.search-section .search-container .search-form-container form fieldset {
+  margin-bottom: 7px;
+}
+
+.search-section .search-container .search-form-container form fieldset legend {
+  margin-bottom: 5px;
+}
+
+.search-section .search-container .search-form-container form fieldset .input-hidden {
   display: none;
 }
 
-.search-section .search-container .search-form-container form .input-label {
+.search-section .search-container .search-form-container form fieldset .input-label {
   width: 134px;
-  height: 35px;
+  height: 42px;
   padding: 10px;
   border: 2px solid #F17E5B;
   border-radius: 6px;
@@ -62,24 +68,44 @@
   display: inline-block;
   color: #F17E5B;
   text-align: center;
-  line-height: 12px;
+  line-height: 19px;
 }
 
-.search-section .search-container .search-form-container form .input-hidden:checked + .input-label {
+.search-section .search-container .search-form-container form fieldset .input-hidden:checked + .input-label {
   color: #FFFFFF;
   background-color: #F17E5B;
 }
 
+.search-section .search-container .search-form-container form .breed-dropdown .css-b62m3t-container {
+  width: 300px;
+  margin: 5px 0;
+  border: 2px solid #F17E5B;
+  border-radius: 6px;
+  /* if no item is picked in dropdown */
+  /* if item is picked in dropdown */
+}
+
+.search-section .search-container .search-form-container form .breed-dropdown .css-b62m3t-container .css-1s2u09g-control {
+  border: none;
+}
+
+.search-section .search-container .search-form-container form .breed-dropdown .css-b62m3t-container .css-1pahdxg-control {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .search-section .search-container .search-form-container form button {
-  width: 128px;
-  height: 40px;
+  width: 160px;
+  height: 50px;
+  border-radius: 6px;
   position: relative;
   top: 33px;
   left: 50%;
   -webkit-transform: translate(-50%);
           transform: translate(-50%);
-  border-radius: 6px;
   text-align: center;
+  font-size: 20px;
   background-color: #F17E5B;
   color: #FFFFFF;
 }
