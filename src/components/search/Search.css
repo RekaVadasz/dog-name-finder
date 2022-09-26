@@ -69,6 +69,7 @@
   color: #F17E5B;
   text-align: center;
   line-height: 19px;
+  cursor: pointer;
 }
 
 .search-section .search-container .search-form-container form fieldset .input-hidden:checked + .input-label {
