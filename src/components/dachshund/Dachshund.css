@@ -1,4 +1,5 @@
 /* Support for CSS `d` property is required. */
+/*  source: https://codepen.io/stivaliserna/pen/jObPyKe */
 
 /* html, body {
   height: 100%;
@@ -338,7 +339,7 @@ body {
 .dachshund-shadow {
   animation-name: scaleShadow;
   transform-origin: center center;
-}
+  }
 
 @keyframes scaleShadow {
   0%,

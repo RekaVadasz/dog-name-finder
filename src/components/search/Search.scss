@@ -20,7 +20,9 @@
         grid-template-columns: 1fr 1fr;
 
         .search-dog-container {
-            
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .search-form-container {
@@ -31,14 +33,38 @@
                 background-color: #FBFAFE;
                 box-shadow: 11px 16px 20px -5px rgba(0, 0, 0, 0.09);
 
-                .gender-radio {
-                    .gender-input {
-                        display: none;
-                    }
-                    .gender-label {
-
-                    }
+                .input-hidden {
+                    display: none;
                 }
+
+                .input-label {
+                    width: 134px;
+                    height: 35px;
+                    padding: 10px;
+                    border: 2px solid #F17E5B;
+                    border-radius: 6px;
+                    margin: 5px 14px 5px 0;
+                    
+                    display: inline-block;
+                    color: #F17E5B;
+                    text-align: center;
+                    line-height: 12px;
+                    
+                }
+
+                .input-hidden:checked + .input-label {
+                    color: #FFFFFF;
+                    background-color: #F17E5B;
+                }
+                /* gender */
+
+
+                /* size */
+
+
+                /* breed */
+
+                /* other */
 
                 button {
                     width: 128px;

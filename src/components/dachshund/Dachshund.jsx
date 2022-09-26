@@ -15,9 +15,9 @@ export default function Dachshund() {
         cy="816"
         cx="498"
         opacity="1"
-        fill="#B2CAE8"
+        fill="#1c31301a"
         fill-opacity="1"
-        stroke="#B2CAE8"
+        /* stroke="#1c31301a" */
         stroke-width="4"
       />
       <path
