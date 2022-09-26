@@ -36,11 +36,9 @@
     }
 
     .ball-illustration {
+        position: relative;
 
         div {
-            width: 100px;
-            height: 100px;
-            position: relative;
             background-repeat: no-repeat;
             background-size: contain;
         }

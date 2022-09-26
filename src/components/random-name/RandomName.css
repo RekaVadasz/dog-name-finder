@@ -35,10 +35,11 @@
   color: #FFFFFF;
 }
 
-.random-name-section .ball-illustration div {
-  width: 100px;
-  height: 100px;
+.random-name-section .ball-illustration {
   position: relative;
+}
+
+.random-name-section .ball-illustration div {
   background-repeat: no-repeat;
   background-size: contain;
 }

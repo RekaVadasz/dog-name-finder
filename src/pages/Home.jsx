@@ -5,6 +5,7 @@ import Hero from '../components/hero/Hero';
 import WalkingPaw from '../components/walking-paw/WalkingPaw';
 import Search from '../components/search/Search';
 import RandomName from '../components/random-name/RandomName';
+import Registration from '../components/registration/Registration';
 
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
             <WalkingPaw />
             <Search />
             <RandomName />
+            <Registration />
         </Layout>
     )
 }
