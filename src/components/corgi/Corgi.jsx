@@ -5,7 +5,7 @@ import './Corgi.css';
 
 export default function Corgi() {
     return (
-        <div class="main">
+        <div class="corgi-main">
             <div class="dog">
 
                 <div class="dog__paws">
