@@ -1,4 +1,5 @@
 import React from 'react';
+import Dachshund from '../dachshund/Dachshund';
 import './Search.css';
 
 export default function Search() {
@@ -7,7 +8,9 @@ export default function Search() {
         <h2>Kutyanév választó</h2>   
         <p>Add meg kutyusod jellemzőit, és megmutatjuk, hogy a felhasználóinktól gyűjtött adatok alapján milyen nevek illenének hozzá a legjobban. </p>
         <div className='search-container'>
-            <div className='search-dog-container'>dog</div>
+            <div className='search-dog-container'>
+                <Dachshund />
+            </div>
             <div className='search-form-container'>
                 <form action="">
 
