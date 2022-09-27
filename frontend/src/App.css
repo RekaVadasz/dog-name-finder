@@ -1,0 +1,53 @@
+body {
+    min-height:100vh;
+    position: relative;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body::after {
+    content: '';
+    display: block;
+    height: 250px; /* Set same as footer's height */
+  }
+
+main {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* label, option, button {
+    cursor: url('./assets/paw-cursor.svg'), pointer;
+} */
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+.no-page-image-container {
+    width: calc(100vw + 75px);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 75px;
+    background-color: #C9E2EB;
+
+}
+
+.no-page-image-container p {
+    position: absolute;
+    top: 223px;
+    font-size: 24px;
+}
+
+.no-page-image {
+    width: 405px;
+    height: 283px;
+    position: relative;
+    left: 75px;
+    background-image: url('./assets/sniffing-dog.gif');
+    background-repeat: no-repeat;
+    background-size: contain;
+}

@@ -11,10 +11,11 @@
 }
 
 .registration-section p {
+  width: 80%;
   font-size: 24px;
   line-height: 50px;
   text-align: center;
-  margin-bottom: 53px;
+  margin: 0 auto 53px;
 }
 
 .registration-section form {
@@ -69,7 +70,7 @@
   height: 273px;
   position: absolute;
   right: 78px;
-  bottom: 6px;
+  bottom: 7px;
   background-image: url("../../assets/jack-russel.png");
   background-repeat: no-repeat;
   background-size: contain;
