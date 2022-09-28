@@ -3,7 +3,7 @@ import './RandomName.css';
 
 export default function RandomName() {
     return (
-        <section className='random-name-section'>
+        <section id='random-name-section'>
             <h2>Bízd a véletlenre!</h2>
             <div className='random-name-text'>
                 <p>Kérj egy véletlenszerűen kiálasztott nevet adatbázisunból, amibe már <strong>128 kutyanevet</strong> gyűjtöttünk össze!</p>

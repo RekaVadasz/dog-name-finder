@@ -3,7 +3,7 @@ import './Registration.css';
 
 export default function Registration() {
   return (
-    <section className='registration-section'>
+    <section id='registration-section'>
         <h2>Regisztráció</h2>
         <p>Regisztrált felhasználóként feltöltheted saját kutyusod képét és adatait, böngészhetsz a képgalériánkban és be is küldheted a kedvenc kutyaneveid! </p>
         <form action=''>

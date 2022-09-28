@@ -4,7 +4,7 @@ import Corgi from '../corgi/Corgi';
 
 export default function Hero() {
   return (
-    <section className='hero-section'>
+    <section id='hero-section'>
         <div className='hero-left'>
             <p>Találd meg a tökéletes nevet négylábú kedvencednek!</p>
             <button>Kipróbálom</button>

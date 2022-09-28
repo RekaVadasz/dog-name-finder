@@ -5,6 +5,7 @@ header {
     padding: 0 75px;
    
     position: fixed;
+    top: 0;
     z-index: 1000;
     
     background-color: #ffffff;
@@ -33,19 +34,24 @@ header {
                 cursor: pointer;
     
             }
-    
+            
             nav {
-                padding: 0 45px;
                 display: flex;
-                align-items: center;
-                column-gap: 25px;
-    
+
                 ul {
-                    font-size: 16px;
-                    font-weight: 500;
-                    color: #F17E5B;
-                    cursor: pointer;
-                
+                    padding: 0 45px;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 25px;
+        
+                    li {
+                        font-size: 16px;
+                        font-weight: 500;
+                        color: #F17E5B;
+                        cursor: pointer;
+                        list-style-type: none;
+                    
+                    }
                 }
             }
         }

@@ -1,23 +1,23 @@
-.hero-section {
-  height: 650px;
+#hero-section {
+  height: 554px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.hero-section .hero-left {
+#hero-section .hero-left {
   width: 50%;
   padding-left: 75px;
 }
 
-.hero-section .hero-left p {
+#hero-section .hero-left p {
   font-size: 41px;
   line-height: 60px;
-  margin-top: 250px;
+  margin-top: 174px;
   margin-bottom: 30px;
 }
 
-.hero-section .hero-left button {
+#hero-section .hero-left button {
   width: 192px;
   height: 50px;
   border-radius: 6px;
@@ -27,7 +27,7 @@
   font-size: 18px;
 }
 
-.hero-section .hero-animation {
+#hero-section .hero-animation {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;

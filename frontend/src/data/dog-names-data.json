@@ -28,13 +28,6 @@
         "tags": ["játékos", "bújós"]
     },
     {
-        "name": "Zsivány",
-        "gender": "fiú",
-        "size": "közepes",
-        "breed": "pumi",
-        "tags": ["játékos", "bundás", "ugatós"]
-    },
-    {
         "name": "Lapi",
         "gender": "fiú",
         "size": "kicsi",

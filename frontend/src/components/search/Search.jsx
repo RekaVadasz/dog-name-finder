@@ -20,7 +20,7 @@ const options = [
 export default function Search() {
 
 return (
-    <section className='search-section'>
+    <section id='search-section'>
         <h2>Kutyanév választó</h2>   
         <p>Add meg kutyusod jellemzőit, és megmutatjuk, hogy a felhasználóinktól gyűjtött adatok alapján milyen nevek illenének hozzá a legjobban. </p>
         <div className='search-container'>

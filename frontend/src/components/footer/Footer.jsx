@@ -8,7 +8,7 @@ import linkedinIcon from '../../assets/linkedin.svg';
 
 export default function Footer() {
     return (
-        <footer>
+        <footer id='footer'>
             <div className='footer-container'>
                 <div className='logo'></div>
                 <div className='navbar-bottom'>
