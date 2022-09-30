@@ -41,7 +41,7 @@ export default function Header() {
                                         >Főoldal
                                     </HashLink>
                                 </li>
-
+ 
                                 <li>
                                     <HashLink 
                                         smooth 
@@ -73,7 +73,7 @@ export default function Header() {
                                     <HashLink 
                                         smooth 
                                         scroll={el => scrollWithOffset(el)}
-                                        to='/home#footer'
+                                        to='/#footer'
                                         >Kontakt
                                     </HashLink>
                                 </li>
@@ -83,7 +83,14 @@ export default function Header() {
                 </div>
                 <div className='login-register'>
                     <button className='login-button'><NavLink to='/profile'>Bejelentkezés</NavLink></button>
-                    <button className='register-button'>Regisztráció</button>
+                    <button className='register-button'>
+                        <HashLink 
+                            smooth 
+                            scroll={el => scrollWithOffset(el)}
+                            to='/home#registration-section'
+                            >Regisztráció
+                        </HashLink>
+                    </button>
                 </div>
             </div>
         </header>

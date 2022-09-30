@@ -56,3 +56,7 @@ footer {
     background-repeat: no-repeat;
     background-size: contain;
 }
+
+.profile-page-container {
+    background-color: #FFF2EF;
+}
