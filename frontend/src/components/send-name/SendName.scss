@@ -4,7 +4,7 @@
         height: 711px;
         padding: 28px;
         border-radius: 6px;
-        background-color: #FBFAFE;
+        background-color: #FFFFFF;
         box-shadow: 11px 16px 20px -5px rgba(0, 0, 0, 0.09);
 
         fieldset {
@@ -61,6 +61,16 @@
         #image-upload-input {
             margin-top: 14px;
             display: block;
+            #file-upload-button {
+                width: 136px;
+                height: 42px;
+                border: none;
+                border-radius: 6px;
+                margin-right: 10px;
+                background-color: #F17E5B;
+                color: #ffffff;
+                font-family: 'Montserrat', sans-serif;
+            }
         }
 
         /* breed */

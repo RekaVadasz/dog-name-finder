@@ -85,6 +85,7 @@
   position: absolute;
   top: 8px;
   right: 8px;
+  cursor: pointer;
 }
 
 .card-small .card-small-image .card-small-favourite-icon {
@@ -93,5 +94,6 @@
   position: absolute;
   right: 8px;
   bottom: 4px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=DogCard.css.map */
