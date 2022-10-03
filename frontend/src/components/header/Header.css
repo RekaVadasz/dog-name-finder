@@ -87,4 +87,27 @@ header .header-container .login-register .register-button {
   background-color: #F17E5B;
   color: #FFFFFF;
 }
+
+header .header-container .profile-logout {
+  width: 149px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .header-container .profile-logout div {
+  margin-right: 39px;
+  color: #F17E5B;
+  font-weight: 500;
+}
+
+header .header-container .profile-logout img {
+  cursor: pointer;
+}
 /*# sourceMappingURL=Header.css.map */

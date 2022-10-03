@@ -1,6 +1,6 @@
-.send-name-container form {
+form {
   width: 521px;
-  height: 711px;
+  height: 726px;
   padding: 28px;
   border-radius: 6px;
   background-color: #FFFFFF;
@@ -9,19 +9,19 @@
   /* breed */
 }
 
-.send-name-container form fieldset {
+form fieldset {
   margin-bottom: 7px;
 }
 
-.send-name-container form fieldset legend {
+form fieldset legend {
   margin-bottom: 5px;
 }
 
-.send-name-container form fieldset .input-hidden {
+form fieldset .input-hidden {
   display: none;
 }
 
-.send-name-container form fieldset .input-label, .send-name-container form fieldset #name-of-dog {
+form fieldset .input-label, form fieldset #name-of-dog {
   width: 140px;
   height: 42px;
   padding: 10px;
@@ -37,19 +37,19 @@
   cursor: pointer;
 }
 
-.send-name-container form fieldset #name-of-dog {
+form fieldset #name-of-dog {
   width: 192px;
   display: block;
   color: #a3a3a3;
   text-align: left;
 }
 
-.send-name-container form fieldset .input-hidden:checked + .input-label {
+form fieldset .input-hidden:checked + .input-label {
   color: #FFFFFF;
   background-color: #F17E5B;
 }
 
-.send-name-container form .traits-checkbox label {
+form .traits-checkbox label {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -58,23 +58,24 @@
   line-height: 15px;
 }
 
-.send-name-container form #image-upload-input {
+form #image-upload-input {
   margin-top: 14px;
   display: block;
 }
 
-.send-name-container form #image-upload-input #file-upload-button {
+form #image-upload-input::file-selector-button {
   width: 136px;
-  height: 42px;
+  height: 31px;
   border: none;
   border-radius: 6px;
   margin-right: 10px;
   background-color: #F17E5B;
   color: #ffffff;
   font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
 }
 
-.send-name-container form .breed-dropdown .css-b62m3t-container {
+form .breed-dropdown .css-b62m3t-container {
   width: 300px;
   margin: 5px 0;
   border: 2px solid #F17E5B;
@@ -83,17 +84,17 @@
   /* if item is picked in dropdown */
 }
 
-.send-name-container form .breed-dropdown .css-b62m3t-container .css-1s2u09g-control {
+form .breed-dropdown .css-b62m3t-container .css-1s2u09g-control {
   border: none;
 }
 
-.send-name-container form .breed-dropdown .css-b62m3t-container .css-1pahdxg-control {
+form .breed-dropdown .css-b62m3t-container .css-1pahdxg-control {
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
 }
 
-.send-name-container form button {
+form button {
   width: 220px;
   height: 50px;
   border-radius: 6px;

@@ -76,6 +76,23 @@ header {
             }
         }
 
+        .profile-logout {
+            width: 149px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            div {
+                margin-right: 39px;
+                color:#F17E5B;
+                font-weight: 500;
+            }
+
+            img {
+                cursor: pointer;
+            }
+        }
+
     }    
 
 }
