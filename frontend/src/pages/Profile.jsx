@@ -2,8 +2,9 @@ import React from 'react';
 
 import Layout from './Layout';
 import SendName from '../components/send-name/SendName';
-import DogCard from '../components/dog-card/DogCard';
+import DogCardSmall from '../components/dog-card-small/DogCardSmall';
 import NameCard from '../components/name-card/NameCard';
+import DogCardLarge from '../components/dog-card-large/DogCardLarge';
 
 export default function Profile() {
     return (
@@ -11,7 +12,7 @@ export default function Profile() {
                 <div className='profile-page-container'>
                     <div className='profile-left'>
                         <h2>Kedvenceim</h2>
-                        <DogCard />
+                        <DogCardSmall />
                     </div>
                     <div className='profile-right'>
                         <div className='profile-form-container'>
@@ -27,6 +28,7 @@ export default function Profile() {
                         </div>
                     </div>
                 </div>
+                <DogCardLarge />
         </Layout>
     )
 }

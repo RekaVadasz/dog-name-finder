@@ -1,5 +1,5 @@
 import React from 'react';
-import './DogCard.css';
+import './DogCardSmall.css';
 
 import dogImage from '../../assets/dog-images/suzy.jpg';
 import favouriteIcon from '../../assets/favourite-filled.svg';
@@ -7,7 +7,7 @@ import expandIcon from '../../assets/expand-solid.svg';
 import femaleIcon from '../../assets/female.svg';
 import mediumDogIcon from '../../assets/medium-size-dog.svg';
 
-export default function DogCard() {
+export default function DogCardSmall() {
     return (
         <div className='card-small'>
 

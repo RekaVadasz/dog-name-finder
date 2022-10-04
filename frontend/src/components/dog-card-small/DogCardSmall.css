@@ -11,6 +11,8 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   background-color: #ffffff;
+  -webkit-box-shadow: 11px 11px 23px -11px rgba(0, 0, 0, 0.06);
+          box-shadow: 11px 11px 23px -11px rgba(0, 0, 0, 0.06);
 }
 
 .card-small .card-small-details {
@@ -96,4 +98,4 @@
   bottom: 4px;
   cursor: pointer;
 }
-/*# sourceMappingURL=DogCard.css.map */
+/*# sourceMappingURL=DogCardSmall.css.map */

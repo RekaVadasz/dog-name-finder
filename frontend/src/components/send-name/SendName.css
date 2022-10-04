@@ -4,8 +4,8 @@ form {
   padding: 28px;
   border-radius: 6px;
   background-color: #FFFFFF;
-  -webkit-box-shadow: 11px 16px 20px -5px rgba(0, 0, 0, 0.09);
-          box-shadow: 11px 16px 20px -5px rgba(0, 0, 0, 0.09);
+  -webkit-box-shadow: 11px 11px 23px -11px rgba(0, 0, 0, 0.06);
+          box-shadow: 11px 11px 23px -11px rgba(0, 0, 0, 0.06);
   /* breed */
 }
 
