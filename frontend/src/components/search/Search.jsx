@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from 'react';
 import Select from 'react-select';
 
+import useFetch from '../../hooks/useFetch';
+
 
 import Dachshund from '../dachshund/Dachshund';
 import './Search.css';
@@ -18,12 +20,45 @@ const options = [
     { value: 'törpespicc', label: 'Törpespicc' }
 ]
 
+/*     async function fetchData() {
+        try {
+          const response = await fetch('/api');
+          const data = await response.json();
+          console.log("Fetch done");
+          console.log(data)
+        } catch (error) {
+          console.log("error", error)
+        }
+    }
+ */    
+
 export default function Search() {
-    const [data, setData] = useState()
+    //const [data, setData] = useState({})
+
+    const url = './api';
+/*     const requestOptions = {
+        method: "GET"
+    } */
+    const { status, data } = useFetch(url)
+    const { dogData, setDogData } = useState({})
+
+    console.log(data)
+
+/*     useEffect(() => {
+        console.log("this is inside useEffect");
+        if (status === 'fetched') {
+            setDogData(data)        
+        }
+
+
+    }, [status, data, setDogData])
+
+ */
 
 
     return (
         <section id='search-section'>
+            {status === 'fetched' && <div>{data[0].name}</div>}
             <h2>Kutyanév választó</h2>   
             <p>Add meg kutyusod jellemzőit, és megmutatjuk, hogy a felhasználóinktól gyűjtött adatok alapján milyen nevek illenének hozzá a legjobban. </p>
             <div className='search-container'>
