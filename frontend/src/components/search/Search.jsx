@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState} from 'react';
 import Select from 'react-select';
+
 
 import Dachshund from '../dachshund/Dachshund';
 import './Search.css';
@@ -18,79 +19,81 @@ const options = [
 ]
 
 export default function Search() {
+    const [data, setData] = useState()
 
-return (
-    <section id='search-section'>
-        <h2>Kutyanév választó</h2>   
-        <p>Add meg kutyusod jellemzőit, és megmutatjuk, hogy a felhasználóinktól gyűjtött adatok alapján milyen nevek illenének hozzá a legjobban. </p>
-        <div className='search-container'>
-            <div className='search-dog-container'>
-                <Dachshund />
+
+    return (
+        <section id='search-section'>
+            <h2>Kutyanév választó</h2>   
+            <p>Add meg kutyusod jellemzőit, és megmutatjuk, hogy a felhasználóinktól gyűjtött adatok alapján milyen nevek illenének hozzá a legjobban. </p>
+            <div className='search-container'>
+                <div className='search-dog-container'>
+                    <Dachshund />
+                </div>
+                <div className='search-form-container'>
+                    <form action="">
+
+                        <fieldset className='gender-radio'>
+                            <legend>Neme:</legend>
+
+                            <input  className='input-hidden' type='radio' id='male' name='gender' value='fiú' />
+                            <label className='input-label' htmlFor="male">Fiú</label>
+
+                            <input className='input-hidden' type='radio' id='female' name='gender' value='lány' />
+                            <label className='input-label' htmlFor="female">Lány</label>
+                        </fieldset>
+
+                        <fieldset className='size-radio'>
+                            <legend>Mérete:</legend>
+
+                            <input className='input-hidden' type='radio' id='small' name='size' value='kicsi' />
+                            <label className='input-label' htmlFor="small">Kicsi</label>
+
+                            <input className='input-hidden' type='radio' id='medium' name='size' value='közepes'/>
+                            <label className='input-label' htmlFor="medium">Közepes</label>
+
+                            <input className='input-hidden' type='radio' id='large' name='size' value='nagy'/>
+                            <label className='input-label' htmlFor="large">Nagy</label>
+                        </fieldset>
+
+                        <fieldset className='breed-dropdown'>
+                            <legend>Fajtája:</legend>
+                            <label htmlFor="breed">
+                                <Select options={options}/>
+                                {/* <select value={breed} name='breed' id='breed' size='5' multiple>
+                                    <option value='not defined'>Mindegy</option>
+                                    <option value='mix'>Keverék</option>
+                                    <option value='pumi'>Pumi</option>
+                                    <option value='tacskó'>Tacskó</option>
+                                    <option value='vizsla'>Vizsla</option>
+                                    <option value='border collie'>Border collie</option>
+                                </select> */}
+                            </label>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Egyéb jellemzők (opcionális):</legend>
+                            <input className='input-hidden' type='checkbox' id='smart' name='smart'/>
+                            <label className='input-label' htmlFor='smart' >Okos</label>
+                            <input className='input-hidden' type='checkbox' id='playful' name='playful'/>
+                            <label className='input-label' htmlFor='playful'>Játékos</label>
+                            <input className='input-hidden' type='checkbox' id='fluffy' name='fluffy'/>
+                            <label className='input-label' htmlFor='fluffy'>Bundás</label>
+                            <input className='input-hidden' type='checkbox' id='shy' name='shy'/>
+                            <label className='input-label' htmlFor='shy'>Félénk</label>
+                            <input className='input-hidden' type='checkbox' id='active' name='active'/>
+                            <label className='input-label' htmlFor='active'>Aktív</label>
+                            <input className='input-hidden' type='checkbox' id='hungry' name='hungry'/>
+                            <label className='input-label' htmlFor='hungry'>Falánk</label>
+                            <input className='input-hidden' type='checkbox' id='barking' name='barking'/>
+                            <label className='input-label' htmlFor='barking'>Ugatós</label>
+                        </fieldset>
+
+                        <button>Keresd!</button>
+
+                    </form>
+                </div>
             </div>
-            <div className='search-form-container'>
-                <form action="">
-
-                    <fieldset className='gender-radio'>
-                        <legend>Neme:</legend>
-
-                        <input  className='input-hidden' type='radio' id='male' name='gender' value='fiú' />
-                        <label className='input-label' htmlFor="male">Fiú</label>
-
-                        <input className='input-hidden' type='radio' id='female' name='gender' value='lány' />
-                        <label className='input-label' htmlFor="female">Lány</label>
-                    </fieldset>
-
-                    <fieldset className='size-radio'>
-                        <legend>Mérete:</legend>
-
-                        <input className='input-hidden' type='radio' id='small' name='size' value='kicsi' />
-                        <label className='input-label' htmlFor="small">Kicsi</label>
-
-                        <input className='input-hidden' type='radio' id='medium' name='size' value='közepes'/>
-                        <label className='input-label' htmlFor="medium">Közepes</label>
-
-                        <input className='input-hidden' type='radio' id='large' name='size' value='nagy'/>
-                        <label className='input-label' htmlFor="large">Nagy</label>
-                    </fieldset>
-
-                    <fieldset className='breed-dropdown'>
-                        <legend>Fajtája:</legend>
-                        <label htmlFor="breed">
-                            <Select options={options}/>
-                            {/* <select value={breed} name='breed' id='breed' size='5' multiple>
-                                <option value='not defined'>Mindegy</option>
-                                <option value='mix'>Keverék</option>
-                                <option value='pumi'>Pumi</option>
-                                <option value='tacskó'>Tacskó</option>
-                                <option value='vizsla'>Vizsla</option>
-                                <option value='border collie'>Border collie</option>
-                            </select> */}
-                        </label>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Egyéb jellemzők (opcionális):</legend>
-                        <input className='input-hidden' type='checkbox' id='smart' name='smart'/>
-                        <label className='input-label' htmlFor='smart' >Okos</label>
-                        <input className='input-hidden' type='checkbox' id='playful' name='playful'/>
-                        <label className='input-label' htmlFor='playful'>Játékos</label>
-                        <input className='input-hidden' type='checkbox' id='fluffy' name='fluffy'/>
-                        <label className='input-label' htmlFor='fluffy'>Bundás</label>
-                        <input className='input-hidden' type='checkbox' id='shy' name='shy'/>
-                        <label className='input-label' htmlFor='shy'>Félénk</label>
-                        <input className='input-hidden' type='checkbox' id='active' name='active'/>
-                        <label className='input-label' htmlFor='active'>Aktív</label>
-                        <input className='input-hidden' type='checkbox' id='hungry' name='hungry'/>
-                        <label className='input-label' htmlFor='hungry'>Falánk</label>
-                        <input className='input-hidden' type='checkbox' id='barking' name='barking'/>
-                        <label className='input-label' htmlFor='barking'>Ugatós</label>
-                    </fieldset>
-
-                    <button>Keresd!</button>
-
-                </form>
-            </div>
-        </div>
-    </section>
-)
+        </section>
+    )
 }
