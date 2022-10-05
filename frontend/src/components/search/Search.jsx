@@ -3,7 +3,6 @@ import Select from 'react-select';
 
 import useFetch from '../../hooks/useFetch';
 
-
 import Dachshund from '../dachshund/Dachshund';
 import './Search.css';
 
@@ -20,31 +19,17 @@ const options = [
     { value: 'törpespicc', label: 'Törpespicc' }
 ]
 
-/*     async function fetchData() {
-        try {
-          const response = await fetch('/api');
-          const data = await response.json();
-          console.log("Fetch done");
-          console.log(data)
-        } catch (error) {
-          console.log("error", error)
-        }
-    }
- */    
-
 export default function Search() {
     //const [data, setData] = useState({})
 
-    const url = './api';
-/*     const requestOptions = {
-        method: "GET"
-    } */
+    const url = './api/search';
 
-    const { status, data } = useFetch(url);  //itt van a probléma
+    const { status, data } = useFetch(url);  
     
     //const { dogData, setDogData } = useState([]);
 
-    //console.log(status)
+    console.log(status)
+    console.log(data)
 
 /*     useEffect(() => {
         console.log("this is inside useEffect");
@@ -101,14 +86,6 @@ export default function Search() {
                             <legend>Fajtája:</legend>
                             <label htmlFor="breed">
                                 <Select options={options}/>
-                                {/* <select value={breed} name='breed' id='breed' size='5' multiple>
-                                    <option value='not defined'>Mindegy</option>
-                                    <option value='mix'>Keverék</option>
-                                    <option value='pumi'>Pumi</option>
-                                    <option value='tacskó'>Tacskó</option>
-                                    <option value='vizsla'>Vizsla</option>
-                                    <option value='border collie'>Border collie</option>
-                                </select> */}
                             </label>
                         </fieldset>
 

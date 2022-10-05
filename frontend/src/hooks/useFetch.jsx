@@ -26,7 +26,7 @@ export default function useFetch(url) {
         };
 
         fetchData();
-        return () => {abortHandler.abort()} //ha megnyitom a komponenst de rögtön alkattintok, abortálja a fetchet
+        return () => {abortHandler.abort()} //ha megnyitom a komponenst de rögtön elkattintok, abortálja a fetchet
 
 
     }, [url])
