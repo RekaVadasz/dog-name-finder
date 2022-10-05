@@ -7,6 +7,17 @@ const bodyParser = require('body-parser');
 const port = 5000;
 
 
+
+// - - - - - GET to have all dogs - - - - - 
+
+app.get('/api', (req, res) => {
+    fs.readFile('dog-names-data.json', 'utf8', function (err, data) {
+        const dogData = JSON.parse(data);
+        res.send(dogData)
+    });
+});
+
+
 // - - - - - GET to search dogs - - - - - 
 
 app.get('/api/search', (req, res) => {

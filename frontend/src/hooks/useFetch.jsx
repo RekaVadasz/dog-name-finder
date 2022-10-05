@@ -7,7 +7,7 @@ export default function useFetch(url) {
     const [data, setData] = useState([]);
     
     useEffect(() => {
-        //if (!url) return; //nem biztos, hogy kell
+        if (url === '') return; //nem biztos, hogy kell
 
         let abortHandler = new AbortController()
         const fetchData = async () => {

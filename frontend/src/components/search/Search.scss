@@ -1,5 +1,4 @@
 #search-section {
-    height: 933px;
 
     h2 {
         margin: 1px  auto 55px;
@@ -26,11 +25,13 @@
         }
 
         .search-form-container {
+            margin-bottom: 60px;
             form {
                 width: 500px;
                 height: 588px;
                 padding: 23px;
                 border-radius: 6px;
+                
                 background-color: #FBFAFE;
                 box-shadow: 11px 16px 20px -5px rgba(0, 0, 0, 0.09);
 
@@ -107,4 +108,23 @@
             }
         }
     }
+
+    .search-results-container {
+        padding: 0 111px 0;
+        margin-bottom: 60px;
+        position: relative;
+        background-color: #FFF2EF;
+
+/*         &::before {
+            content: '';
+            max-width: 100%;
+            background-color: aqua;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -1;
+
+        }
+ */    }
 }
