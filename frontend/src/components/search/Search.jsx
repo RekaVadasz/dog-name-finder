@@ -39,26 +39,32 @@ export default function Search() {
 /*     const requestOptions = {
         method: "GET"
     } */
-    const { status, data } = useFetch(url)
-    const { dogData, setDogData } = useState({})
 
-    console.log(data)
+    const { status, data } = useFetch(url);  //itt van a probléma
+    
+    //const { dogData, setDogData } = useState([]);
+
+    //console.log(status)
 
 /*     useEffect(() => {
         console.log("this is inside useEffect");
         if (status === 'fetched') {
             setDogData(data)        
-        }
+        } 
 
 
-    }, [status, data, setDogData])
-
+    }, [status])
  */
+
+    /* if (status === 'idle') return <div>loading</div>
+    if (status === 'fetched') return <div>{data[0].name}</div>
+ */
+
+ 
 
 
     return (
         <section id='search-section'>
-            {status === 'fetched' && <div>{data[0].name}</div>}
             <h2>Kutyanév választó</h2>   
             <p>Add meg kutyusod jellemzőit, és megmutatjuk, hogy a felhasználóinktól gyűjtött adatok alapján milyen nevek illenének hozzá a legjobban. </p>
             <div className='search-container'>
