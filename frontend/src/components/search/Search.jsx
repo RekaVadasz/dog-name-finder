@@ -28,22 +28,25 @@ export default function Search() {
     //console.log(status)
     //console.log(data)
 
-    const [inputs, setInputs] = useState({});
+    const [inputs, setInputs] = useState({breed: 'mindegy'});
     console.log(inputs)
 
-
+    // - - - -  input change handler - - - - 
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         setInputs(values => ({...values, [name]: value}))
     }
-    
 
+
+    //- - - - - Submit Form - - - - - 
     const handleSubmit = e => {
         e.preventDefault();
+        console.log(inputs)
         const gender = inputs.gender;
         const size = inputs.size;
-        const url = `./api/search?gender=${gender}&size=${size}&breed=mindegy`
+        const breed = inputs.breed;
+        const url = `./api/search?gender=${gender}&size=${size}&breed=${breed}`
         setUrl(url);
     }
  
@@ -126,12 +129,22 @@ export default function Search() {
                         <fieldset className='breed-dropdown'>
                             <legend>Fajtája:</legend>
                             <label htmlFor="breed">
-                                <Select 
+{/*                                 <Select 
                                     options={options} 
-                                    name='breed'
-                                    defaultValue="Mindegy"
-                                    onChange={handleChange}
+                                    value={breedInput}
+                                    onChange={handleChangeSelect}
                                 />
+ */}
+                                <select name = 'breed' value={inputs.breed} onChange={handleChange}>
+                                    <option value='mindegy'>Mindegy</option>
+                                    <option value='keverék'>Keverék</option>
+                                    <option value='pumi'>Pumi</option>
+                                    <option value='tacskó'>Tacskó</option>
+                                    <option value='vizsla'>Vizsla</option>
+                                    <option value='törpe pincser'>Törpe pincser</option>
+                                    <option value='border collie'>Border collie</option>
+                                    <option value='mudi'>Mudi</option>
+                                </select>
                             </label>
                         </fieldset>
 
@@ -172,7 +185,7 @@ export default function Search() {
             {status === 'fetched' && 
                 <div className='search-results-container'>
                     {data.map((dog) => {
-                        return (<NameCard name={dog.name}/>)
+                        return (<NameCard name={dog.name} key={dog.name}/>)
                     })}
                 </div>}
 
