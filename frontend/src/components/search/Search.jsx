@@ -28,8 +28,8 @@ export default function Search() {
     //console.log(status)
     //console.log(data)
 
-    const [inputs, setInputs] = useState({breed: 'mindegy', traits: ["cuki", "lusta"]});
-    //console.log(inputs)
+    const [inputs, setInputs] = useState({breed: 'mindegy', traits: []});
+    console.log(inputs)
 
     // - - - -  input change handler - - - - 
     const handleChange = (event) => {
@@ -38,22 +38,24 @@ export default function Search() {
         setInputs(values => ({...values, [name]: value}))
     }
 
+    // - - - -  input change handler - Checkboxes - - - - 
+
     const handleChangeCheckbox = (event) => {
-        console.log(event.target.name)
-        console.log(event.target.value)
+        const name = event.target.name;
         const newTrait = event.target.value;
 
-        const oldTraits = Array.from(inputs.traits);
-        if (oldTraits.includes(newTrait)) return;
+        const traits = Array.from(inputs.traits);
 
-        
+        if (event.target.checked) {
+            traits.push(newTrait)
+            setInputs((values) => ({...values, [name]: traits}))
 
-        
+        } else {
+            const newTraits = traits.filter(trait => {return trait !== newTrait})
+            console.log(newTraits)
+            setInputs((values) => ({...values, [name]: newTraits}))
+        }
 
-
-
-        console.log(oldTraits)
-        //setInputs((values) => {})
     }
 
     //- - - - - Submit Form - - - - - 
@@ -63,7 +65,13 @@ export default function Search() {
         const gender = inputs.gender;
         const size = inputs.size;
         const breed = inputs.breed;
-        const url = `./api/search?gender=${gender}&size=${size}&breed=${breed}`
+
+        let traits ='';
+        inputs.traits.forEach(trait => traits += `&traits=${trait}`)
+        //console.log(traits)
+
+        const url = `./api/search?gender=${gender}&size=${size}&breed=${breed}${traits}`
+        console.log(url)
         setUrl(url);
     }
  
@@ -172,8 +180,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='smart' 
-                                name='trait'
-                                value='smart'
+                                name='traits'
+                                value='okos'
                                 onChange={handleChangeCheckbox}
                             />
                             <label className='input-label' htmlFor='smart' >Okos</label>
@@ -182,8 +190,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='playful' 
-                                name='trait'
-                                value='playful'
+                                name='traits'
+                                value='játékos'
                                 onChange={handleChangeCheckbox}
                                 />
                             <label className='input-label' htmlFor='playful'>Játékos</label>
@@ -192,8 +200,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='fluffy' 
-                                name='trait'
-                                value='fluffy'
+                                name='traits'
+                                value='bundás'
                                 onChange={handleChangeCheckbox}
                             />
                             <label className='input-label' htmlFor='fluffy'>Bundás</label>
@@ -202,8 +210,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='shy' 
-                                name='trait'
-                                value='shy'
+                                name='traits'
+                                value='félénk'
                                 onChange={handleChangeCheckbox}
                             />
                             <label className='input-label' htmlFor='shy'>Félénk</label>
@@ -212,8 +220,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='active' 
-                                name='trait'
-                                value='active'
+                                name='traits'
+                                value='aktív'
                                 onChange={handleChangeCheckbox}
                                 />
                             <label className='input-label' htmlFor='active'>Aktív</label>
@@ -222,8 +230,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='hungry' 
-                                name='trait'
-                                value='hungry'
+                                name='traits'
+                                value='falánk'
                                 onChange={handleChangeCheckbox}
                                 />
                             <label className='input-label' htmlFor='hungry'>Falánk</label>
@@ -232,8 +240,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='barking' 
-                                name='trait'
-                                value='barking'
+                                name='traits'
+                                value='ugatós'
                                 onChange={handleChangeCheckbox}    
                             />
                             <label className='input-label' htmlFor='barking'>Ugatós</label>
@@ -242,8 +250,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='lazy' 
-                                name='trait'
-                                value='lazy'
+                                name='traits'
+                                value='lusta'
                                 onChange={handleChangeCheckbox}    
                             />
                             <label className='input-label' htmlFor='lazy'>Lusta</label>
@@ -252,8 +260,8 @@ export default function Search() {
                                 className='input-hidden' 
                                 type='checkbox' 
                                 id='cuddly' 
-                                name='trait'
-                                value='cuddly'
+                                name='traits'
+                                value='bújós'
                                 onChange={handleChangeCheckbox}    
                             />
                             <label className='input-label' htmlFor='cuddly'>Bújós</label>
