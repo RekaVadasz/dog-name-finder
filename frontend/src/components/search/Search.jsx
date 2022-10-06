@@ -28,8 +28,8 @@ export default function Search() {
     //console.log(status)
     //console.log(data)
 
-    const [inputs, setInputs] = useState({breed: 'mindegy'});
-    console.log(inputs)
+    const [inputs, setInputs] = useState({breed: 'mindegy', traits: ["cuki", "lusta"]});
+    //console.log(inputs)
 
     // - - - -  input change handler - - - - 
     const handleChange = (event) => {
@@ -38,6 +38,23 @@ export default function Search() {
         setInputs(values => ({...values, [name]: value}))
     }
 
+    const handleChangeCheckbox = (event) => {
+        console.log(event.target.name)
+        console.log(event.target.value)
+        const newTrait = event.target.value;
+
+        const oldTraits = Array.from(inputs.traits);
+        if (oldTraits.includes(newTrait)) return;
+
+        
+
+        
+
+
+
+        console.log(oldTraits)
+        //setInputs((values) => {})
+    }
 
     //- - - - - Submit Form - - - - - 
     const handleSubmit = e => {
@@ -135,7 +152,7 @@ export default function Search() {
                                     onChange={handleChangeSelect}
                                 />
  */}
-                                <select name = 'breed' value={inputs.breed} onChange={handleChange}>
+                                <select name='breed' value={inputs.breed} onChange={handleChange}>
                                     <option value='mindegy'>Mindegy</option>
                                     <option value='keverék'>Keverék</option>
                                     <option value='pumi'>Pumi</option>
@@ -151,26 +168,95 @@ export default function Search() {
                         <fieldset>
                             <legend>Egyéb jellemzők (opcionális):</legend>
 
-                            <input className='input-hidden' type='checkbox' id='smart' name='smart'/>
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='smart' 
+                                name='trait'
+                                value='smart'
+                                onChange={handleChangeCheckbox}
+                            />
                             <label className='input-label' htmlFor='smart' >Okos</label>
 
-                            <input className='input-hidden' type='checkbox' id='playful' name='playful'/>
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='playful' 
+                                name='trait'
+                                value='playful'
+                                onChange={handleChangeCheckbox}
+                                />
                             <label className='input-label' htmlFor='playful'>Játékos</label>
 
-                            <input className='input-hidden' type='checkbox' id='fluffy' name='fluffy'/>
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='fluffy' 
+                                name='trait'
+                                value='fluffy'
+                                onChange={handleChangeCheckbox}
+                            />
                             <label className='input-label' htmlFor='fluffy'>Bundás</label>
 
-                            <input className='input-hidden' type='checkbox' id='shy' name='shy'/>
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='shy' 
+                                name='trait'
+                                value='shy'
+                                onChange={handleChangeCheckbox}
+                            />
                             <label className='input-label' htmlFor='shy'>Félénk</label>
 
-                            <input className='input-hidden' type='checkbox' id='active' name='active'/>
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='active' 
+                                name='trait'
+                                value='active'
+                                onChange={handleChangeCheckbox}
+                                />
                             <label className='input-label' htmlFor='active'>Aktív</label>
 
-                            <input className='input-hidden' type='checkbox' id='hungry' name='hungry'/>
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='hungry' 
+                                name='trait'
+                                value='hungry'
+                                onChange={handleChangeCheckbox}
+                                />
                             <label className='input-label' htmlFor='hungry'>Falánk</label>
 
-                            <input className='input-hidden' type='checkbox' id='barking' name='barking'/>
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='barking' 
+                                name='trait'
+                                value='barking'
+                                onChange={handleChangeCheckbox}    
+                            />
                             <label className='input-label' htmlFor='barking'>Ugatós</label>
+
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='lazy' 
+                                name='trait'
+                                value='lazy'
+                                onChange={handleChangeCheckbox}    
+                            />
+                            <label className='input-label' htmlFor='lazy'>Lusta</label>
+                            
+                            <input 
+                                className='input-hidden' 
+                                type='checkbox' 
+                                id='cuddly' 
+                                name='trait'
+                                value='cuddly'
+                                onChange={handleChangeCheckbox}    
+                            />
+                            <label className='input-label' htmlFor='cuddly'>Bújós</label>
                         </fieldset>
 
                         <button onClick={handleSubmit}>Keresd!</button>
