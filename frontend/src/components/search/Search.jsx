@@ -26,10 +26,10 @@ export default function Search() {
 
     const { status, data } = useFetch(url);  
     //console.log(status)
-    //console.log(data)
+    console.log(data.length)
 
     const [inputs, setInputs] = useState({breed: 'mindegy', traits: []});
-    console.log(inputs)
+    //console.log(inputs)
 
     // - - - -  input change handler - - - - 
     const handleChange = (event) => {
@@ -71,7 +71,7 @@ export default function Search() {
         //console.log(traits)
 
         const url = `./api/search?gender=${gender}&size=${size}&breed=${breed}${traits}`
-        console.log(url)
+        //console.log(url)
         setUrl(url);
     }
  
