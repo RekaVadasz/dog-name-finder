@@ -4,167 +4,167 @@
         "gender": "fiú",
         "size": "közepes",
         "breed": "keverék",
-        "tags": ["bújós", "falánk", "bundás", "okos"]
+        "traits": ["bújós", "falánk", "bundás", "okos"]
     },
     {
         "name": "Guba",
         "gender": "lány",
         "size": "kicsi",
         "breed": "keverék",
-        "tags": ["játékos", "félénk"]
+        "traits": ["játékos", "félénk"]
     },
     {
         "name": "Misi",
         "gender": "fiú",
         "size": "közepes",
         "breed": "keverék",
-        "tags": ["játékos", "bújós", "bundás"]
+        "traits": ["játékos", "bújós", "bundás"]
     },
     {
         "name": "Lutri",
         "gender": "fiú",
         "size": "kicsi",
         "breed": "keverék",
-        "tags": ["játékos", "bújós"]
+        "traits": ["játékos", "bújós"]
     },
     {
         "name": "Lapi",
         "gender": "fiú",
         "size": "kicsi",
         "breed": "törpe pincser",
-        "tags": ["falánk", "lusta"]
+        "traits": ["falánk", "lusta"]
     },
     {
         "name": "Suzy",
         "gender": "lány",
         "size": "nagy",
         "breed": "keverék",
-        "tags": ["játékos", "aktív", "falánk", "okos"]
+        "traits": ["játékos", "aktív", "falánk", "okos"]
     },
     {
         "name": "Cimbi",
         "gender": "fiú",
         "size": "közepes",
         "breed": "pumi",
-        "tags": ["játékos", "bundás", "ugatós"]
+        "traits": ["játékos", "bundás", "ugatós"]
     },
     {
         "name": "Fruzsi",
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "tags": ["félénk", "falánk"]
+        "traits": ["félénk", "falánk"]
     },
     {
         "name": "Hekus",
         "gender": "fiú",
         "size": "kicsi",
         "breed": "tacskó",
-        "tags": ["játékos", "aktív", "ugatós"]
+        "traits": ["játékos", "aktív", "ugatós"]
     },
     {
         "name": "Artúr",
         "gender": "fiú",
         "size": "közepes",
         "breed": "mudi",
-        "tags": ["játékos", "bundás", "ugatós", "okos"]
+        "traits": ["játékos", "bundás", "ugatós", "okos"]
     },
     {
         "name": "Zsivány",
         "gender": "fiú",
         "size": "közepes",
         "breed": "pumi",
-        "tags": ["játékos", "bundás", "ugatós"]
+        "traits": ["játékos", "bundás", "ugatós"]
     },
     {
         "name": "Cserkel",
         "gender": "fiú",
         "size": "kicsi",
         "breed": "keverék",
-        "tags": ["falánk"]
+        "traits": ["falánk"]
     },
     {
         "name": "Ecset",
         "gender": "lány",
         "size": "nagy",
         "breed": "border collie",
-        "tags": ["játékos", "bundás", "aktív"]
+        "traits": ["játékos", "bundás", "aktív"]
     },
     {
         "name": "Kifli",
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "tags": ["játékos", "bundás", "ugatós"]
+        "traits": ["játékos", "bundás", "ugatós"]
     },
     {
         "name": "Zizi",
         "gender": "lány",
         "size": "kicsi",
         "breed": "jack russel terrier",
-        "tags": ["játékos", "aktív", "ugatós"]
+        "traits": ["játékos", "aktív", "ugatós"]
     },
     {
         "name": "Rico",
         "gender": "fiú",
         "size": "nagy",
         "breed": "tervueren",
-        "tags": ["játékos", "bundás", "félénk"]
+        "traits": ["játékos", "bundás", "félénk"]
     },
     {
         "name": "Rudi",
         "gender": "fiú",
         "size": "nagy",
         "breed": "vizsla",
-        "tags": ["játékos"]
+        "traits": ["játékos"]
     },
     {
         "name": "Zokni",
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "tags": ["ugatós"]
+        "traits": ["ugatós"]
     },
     {
         "name": "Luna",
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "tags": ["félénk"]
+        "traits": ["félénk"]
     },
     {
         "name": "Füli",
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "tags": ["félénk"]
+        "traits": ["félénk"]
     },
     {
         "name": "Molly",
         "gender": "lány",
         "size": "kicsi",
         "breed": "törpespicc",
-        "tags": ["ugatós", "játékos"]
+        "traits": ["ugatós", "játékos"]
     },
     {
         "name": "Polly",
         "gender": "lány",
         "size": "kicsi",
         "breed": "törpespicc",
-        "tags": ["ugatós", "játékos"]
+        "traits": ["ugatós", "játékos"]
     },
     {
         "name": "Perec",
         "gender": "fiú",
         "size": "nagy",
         "breed": "keverék",
-        "tags": ["játékos", "aktív"]
+        "traits": ["játékos", "aktív"]
     }, 
     {
         "name": "Rozi",
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "tags": ["játékos", "aktív", "bújós"]
+        "traits": ["játékos", "aktív", "bújós"]
      }
 ]
