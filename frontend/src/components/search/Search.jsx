@@ -6,6 +6,7 @@ import useFetch from '../../hooks/useFetch';
 import Dachshund from '../dachshund/Dachshund';
 import NameCard from '../name-card/NameCard';
 import './Search.css';
+import Loader from '../loader/Loader';
 
 
 const options = [
@@ -274,14 +275,26 @@ export default function Search() {
 
             </div>
 
-            {status === 'fetching' && <div>Loading results, please wait...</div>}
+            {status === 'fetching' && <div className='search-loader'>Loading results, please wait...</div>}
 
             {status === 'fetched' && 
+
                 <div className='search-results-container'>
-                    {data.map((dog) => {
-                        return (<NameCard name={dog.name} key={dog.name}/>)
-                    })}
-                </div>}
+                    {
+                    data.length === 0 
+                    ?
+                    <div className='no-result-found'>Nem találtunk a megadott paramétereknek megfelelő kutyust.<br/>Kérjük, próbálkozz egy másik kereséssel!</div>
+                    :
+                    <div>
+                        {data.map((dog) => {
+                            return (<NameCard name={dog.name} key={dog.name}/>)
+                        })}
+                    </div>
+                    }
+                </div>
+            }
+
+            <Loader />
 
         </section>
     )

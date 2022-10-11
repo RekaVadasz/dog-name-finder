@@ -23,16 +23,12 @@ app.get('/api', (req, res) => {
 app.get('/api/search', (req, res) => {
     fs.readFile('dog-names-data.json', 'utf8', function (err, data) { 
         const dogList = JSON.parse(data);
-        //console.log(dogList)
-       
         const gender = req.query.gender; // lány / fiú
         const size = req.query.size; // kicsi / közepes /nagy 
         const breed = req.query.breed; // OPTIONAL - (default: mindegy)  / keverék / tacskó ...stb 
         const traits = req.query.traits; // OPTIONAL - 0, 1 or more
         
         let newDogList = []
-
-
         
         const filterPhysicalAppearance = function (dog) {
             if (breed === "mindegy") {
@@ -48,7 +44,6 @@ app.get('/api/search', (req, res) => {
                 )
             }
         }
-        
         
         if (req.query.traits == undefined) {
             //if no personality traits are defined: search all dogs based on physical appearance
@@ -72,7 +67,6 @@ app.get('/api/search', (req, res) => {
                 console.log("more traits were given")
                 console.log(traits)
 
-
                 newDogList = dogList
                     .filter(filterPhysicalAppearance)
                     .filter(dog => {
@@ -80,7 +74,6 @@ app.get('/api/search', (req, res) => {
                             return dog.traits.includes(trait)
                         }))
                     })
-
 
 
                 /* filteredDogList = dogList.filter(filterPhysicalAppearance)
@@ -92,8 +85,6 @@ app.get('/api/search', (req, res) => {
                     }
 
                 }); */
-
-
 
                 /*
                 for (const trait of traits) {
@@ -122,21 +113,11 @@ app.get('/api/search', (req, res) => {
                 }
                 */
 
-
-
             }
         }
         
-
-
-
-
-        
         res.send(newDogList)
        
-        
-
-
 
     });
 });
