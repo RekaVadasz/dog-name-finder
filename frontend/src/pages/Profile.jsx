@@ -21,10 +21,7 @@ export default function Profile() {
                         </div>
                         <div className='profile-sent-names-container'>
                             <h2>Beküldött nevek</h2>
-                            <NameCard />
-                            <NameCard />
-                            <NameCard />
-                            <NameCard />
+                            <NameCard dog={{name: "Róki"}}/>
                         </div>
                     </div>
                 </div>

@@ -183,4 +183,14 @@
   -webkit-box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.08);
           box-shadow: 4px 5px 6px 0px rgba(0, 0, 0, 0.08);
 }
+
+#search-section .search-results-container .dog-card-large-background {
+  background-color: rgba(255, 242, 239, 0.88);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+}
 /*# sourceMappingURL=Search.css.map */

@@ -287,7 +287,7 @@ export default function Search() {
                     :
                     <div>
                         {data.map((dog) => {
-                            return (<NameCard name={dog.name} key={dog.name}/>)
+                            return (<NameCard dog={dog} key={dog.id}/>)
                         })}
                     </div>
                     }

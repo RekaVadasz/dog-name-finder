@@ -86,7 +86,7 @@ return (
             <label className='input-label' htmlFor='lazy'>Lusta</label>
         </fieldset>
 
-        <label for='image-upload-input'>Kép feltöltése:</label>
+        <label htmlFor='image-upload-input'>Kép feltöltése:</label>
         <input type="file" id='image-upload-input' name='image-upload-input'></input>
 
         <button>Beküldöm a kutyát!</button>

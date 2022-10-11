@@ -179,5 +179,15 @@
         z-index: -1;
         }
         */    
+
+        .dog-card-large-background {
+            background-color: rgba(255, 242, 239, 0.88);
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99;
+        }
     }
 }

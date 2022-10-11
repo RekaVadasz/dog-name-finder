@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "name": "Róki",
         "gender": "fiú",
         "size": "közepes",
@@ -7,6 +8,7 @@
         "traits": ["bújós", "falánk", "bundás", "okos"]
     },
     {
+        "id": 2,
         "name": "Guba",
         "gender": "lány",
         "size": "kicsi",
@@ -14,6 +16,7 @@
         "traits": ["játékos", "félénk"]
     },
     {
+        "id": 3,
         "name": "Misi",
         "gender": "fiú",
         "size": "közepes",
@@ -21,6 +24,7 @@
         "traits": ["játékos", "bújós", "bundás"]
     },
     {
+        "id": 4,
         "name": "Lutri",
         "gender": "fiú",
         "size": "kicsi",
@@ -28,6 +32,7 @@
         "traits": ["játékos", "bújós"]
     },
     {
+        "id": 5,
         "name": "Lapi",
         "gender": "fiú",
         "size": "kicsi",
@@ -35,6 +40,7 @@
         "traits": ["falánk", "lusta"]
     },
     {
+        "id": 6,
         "name": "Suzy",
         "gender": "lány",
         "size": "nagy",
@@ -42,6 +48,7 @@
         "traits": ["játékos", "aktív", "falánk", "okos"]
     },
     {
+        "id": 7,
         "name": "Cimbi",
         "gender": "fiú",
         "size": "közepes",
@@ -49,6 +56,7 @@
         "traits": ["játékos", "bundás", "ugatós"]
     },
     {
+        "id": 8,
         "name": "Fruzsi",
         "gender": "lány",
         "size": "közepes",
@@ -56,6 +64,7 @@
         "traits": ["félénk", "falánk"]
     },
     {
+        "id": 9,
         "name": "Hekus",
         "gender": "fiú",
         "size": "kicsi",
@@ -63,6 +72,7 @@
         "traits": ["játékos", "aktív", "ugatós"]
     },
     {
+        "id": 10,
         "name": "Artúr",
         "gender": "fiú",
         "size": "közepes",
@@ -70,6 +80,7 @@
         "traits": ["játékos", "bundás", "ugatós", "okos"]
     },
     {
+        "id": 11,
         "name": "Zsivány",
         "gender": "fiú",
         "size": "közepes",
@@ -77,6 +88,7 @@
         "traits": ["játékos", "bundás", "ugatós"]
     },
     {
+        "id": 12,
         "name": "Cserkel",
         "gender": "fiú",
         "size": "kicsi",
@@ -84,6 +96,7 @@
         "traits": ["falánk"]
     },
     {
+        "id": 13,
         "name": "Ecset",
         "gender": "lány",
         "size": "nagy",
@@ -91,6 +104,7 @@
         "traits": ["játékos", "bundás", "aktív"]
     },
     {
+        "id": 14,
         "name": "Kifli",
         "gender": "lány",
         "size": "közepes",
@@ -98,6 +112,7 @@
         "traits": ["játékos", "bundás", "ugatós"]
     },
     {
+        "id": 15,
         "name": "Zizi",
         "gender": "lány",
         "size": "kicsi",
@@ -105,6 +120,7 @@
         "traits": ["játékos", "aktív", "ugatós"]
     },
     {
+        "id": 16,
         "name": "Rico",
         "gender": "fiú",
         "size": "nagy",
@@ -112,6 +128,7 @@
         "traits": ["játékos", "bundás", "félénk"]
     },
     {
+        "id": 17,
         "name": "Rudi",
         "gender": "fiú",
         "size": "nagy",
@@ -119,6 +136,7 @@
         "traits": ["játékos"]
     },
     {
+        "id": 18,
         "name": "Zokni",
         "gender": "lány",
         "size": "közepes",
@@ -126,6 +144,7 @@
         "traits": ["ugatós"]
     },
     {
+        "id": 19,
         "name": "Luna",
         "gender": "lány",
         "size": "közepes",
@@ -133,6 +152,7 @@
         "traits": ["félénk"]
     },
     {
+        "id": 20,
         "name": "Füli",
         "gender": "lány",
         "size": "közepes",
@@ -140,6 +160,7 @@
         "traits": ["félénk"]
     },
     {
+        "id": 21,
         "name": "Molly",
         "gender": "lány",
         "size": "kicsi",
@@ -147,6 +168,7 @@
         "traits": ["ugatós", "játékos"]
     },
     {
+        "id": 22,
         "name": "Polly",
         "gender": "lány",
         "size": "kicsi",
@@ -154,6 +176,7 @@
         "traits": ["ugatós", "játékos"]
     },
     {
+        "id": 23,
         "name": "Perec",
         "gender": "fiú",
         "size": "nagy",
@@ -161,10 +184,11 @@
         "traits": ["játékos", "aktív"]
     }, 
     {
+        "id": 24,
         "name": "Rozi",
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
         "traits": ["játékos", "aktív", "bújós"]
-     }
+    }
 ]
