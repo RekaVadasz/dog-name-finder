@@ -275,7 +275,7 @@ export default function Search() {
 
             </div>
 
-            {status === 'fetching' && <div className='search-loader'>Loading results, please wait...</div>}
+            {status === 'fetching' && <Loader />}
 
             {status === 'fetched' && 
 
@@ -294,7 +294,7 @@ export default function Search() {
                 </div>
             }
 
-            <Loader />
+            
 
         </section>
     )
