@@ -5,7 +5,8 @@
         "gender": "fiú",
         "size": "közepes",
         "breed": "keverék",
-        "traits": ["bújós", "falánk", "bundás", "okos"]
+        "traits": ["bújós", "falánk", "bundás", "okos"],
+        "imageSrc": "/dog-images/roki.jpg"
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "gender": "lány",
         "size": "kicsi",
         "breed": "keverék",
-        "traits": ["játékos", "félénk"]
+        "traits": ["játékos", "félénk"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 3,
@@ -21,7 +23,8 @@
         "gender": "fiú",
         "size": "közepes",
         "breed": "keverék",
-        "traits": ["játékos", "bújós", "bundás"]
+        "traits": ["játékos", "bújós", "bundás"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 4,
@@ -29,7 +32,8 @@
         "gender": "fiú",
         "size": "kicsi",
         "breed": "keverék",
-        "traits": ["játékos", "bújós"]
+        "traits": ["játékos", "bújós"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 5,
@@ -37,7 +41,8 @@
         "gender": "fiú",
         "size": "kicsi",
         "breed": "törpe pincser",
-        "traits": ["falánk", "lusta"]
+        "traits": ["falánk", "lusta"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 6,
@@ -45,7 +50,8 @@
         "gender": "lány",
         "size": "nagy",
         "breed": "keverék",
-        "traits": ["játékos", "aktív", "falánk", "okos"]
+        "traits": ["játékos", "aktív", "falánk", "okos"],
+        "imageSrc": "/dog-images/suzy.jpg"
     },
     {
         "id": 7,
@@ -53,7 +59,8 @@
         "gender": "fiú",
         "size": "közepes",
         "breed": "pumi",
-        "traits": ["játékos", "bundás", "ugatós"]
+        "traits": ["játékos", "bundás", "ugatós"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 8,
@@ -61,7 +68,8 @@
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "traits": ["félénk", "falánk"]
+        "traits": ["félénk", "falánk"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 9,
@@ -69,7 +77,8 @@
         "gender": "fiú",
         "size": "kicsi",
         "breed": "tacskó",
-        "traits": ["játékos", "aktív", "ugatós"]
+        "traits": ["játékos", "aktív", "ugatós"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 10,
@@ -77,7 +86,8 @@
         "gender": "fiú",
         "size": "közepes",
         "breed": "mudi",
-        "traits": ["játékos", "bundás", "ugatós", "okos"]
+        "traits": ["játékos", "bundás", "ugatós", "okos"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 11,
@@ -85,7 +95,8 @@
         "gender": "fiú",
         "size": "közepes",
         "breed": "pumi",
-        "traits": ["játékos", "bundás", "ugatós"]
+        "traits": ["játékos", "bundás", "ugatós"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 12,
@@ -93,7 +104,8 @@
         "gender": "fiú",
         "size": "kicsi",
         "breed": "keverék",
-        "traits": ["falánk"]
+        "traits": ["falánk"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 13,
@@ -101,7 +113,8 @@
         "gender": "lány",
         "size": "nagy",
         "breed": "border collie",
-        "traits": ["játékos", "bundás", "aktív"]
+        "traits": ["játékos", "bundás", "aktív"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 14,
@@ -109,7 +122,8 @@
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "traits": ["játékos", "bundás", "ugatós"]
+        "traits": ["játékos", "bundás", "ugatós"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 15,
@@ -117,7 +131,8 @@
         "gender": "lány",
         "size": "kicsi",
         "breed": "jack russel terrier",
-        "traits": ["játékos", "aktív", "ugatós"]
+        "traits": ["játékos", "aktív", "ugatós"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 16,
@@ -125,7 +140,8 @@
         "gender": "fiú",
         "size": "nagy",
         "breed": "tervueren",
-        "traits": ["játékos", "bundás", "félénk"]
+        "traits": ["játékos", "bundás", "félénk"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 17,
@@ -133,7 +149,8 @@
         "gender": "fiú",
         "size": "nagy",
         "breed": "vizsla",
-        "traits": ["játékos"]
+        "traits": ["játékos"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 18,
@@ -141,7 +158,8 @@
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "traits": ["ugatós"]
+        "traits": ["ugatós"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 19,
@@ -149,7 +167,8 @@
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "traits": ["félénk"]
+        "traits": ["félénk"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 20,
@@ -157,7 +176,8 @@
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "traits": ["félénk"]
+        "traits": ["félénk"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 21,
@@ -165,7 +185,8 @@
         "gender": "lány",
         "size": "kicsi",
         "breed": "törpespicc",
-        "traits": ["ugatós", "játékos"]
+        "traits": ["ugatós", "játékos"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 22,
@@ -173,7 +194,8 @@
         "gender": "lány",
         "size": "kicsi",
         "breed": "törpespicc",
-        "traits": ["ugatós", "játékos"]
+        "traits": ["ugatós", "játékos"],
+        "imageSrc": "/dog-images/Guba.jpg"
     },
     {
         "id": 23,
@@ -181,7 +203,8 @@
         "gender": "fiú",
         "size": "nagy",
         "breed": "keverék",
-        "traits": ["játékos", "aktív"]
+        "traits": ["játékos", "aktív"],
+        "imageSrc": "/dog-images/Guba.jpg"
     }, 
     {
         "id": 24,
@@ -189,6 +212,7 @@
         "gender": "lány",
         "size": "közepes",
         "breed": "keverék",
-        "traits": ["játékos", "aktív", "bújós"]
+        "traits": ["játékos", "aktív", "bújós"],
+        "imageSrc": "/dog-images/Rozi.jpg"
     }
 ]

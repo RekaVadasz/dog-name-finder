@@ -26,8 +26,8 @@ export default function Search() {
     const [ url, setUrl ] = useState('') 
 
     const { status, data } = useFetch(url);  
-    //console.log(status)
-    console.log(data.length)
+    console.log(data)
+    //console.log(data.length)
 
     const [inputs, setInputs] = useState({breed: 'mindegy', traits: []});
     //console.log(inputs)
@@ -62,7 +62,7 @@ export default function Search() {
     //- - - - - Submit Form - - - - - 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(inputs)
+        //console.log(inputs)
         const gender = inputs.gender;
         const size = inputs.size;
         const breed = inputs.breed;

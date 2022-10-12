@@ -90,4 +90,15 @@ footer {
 
 .profile-sent-names-container {
     max-width: 521px;
+    padding-bottom: 40px;
+}
+
+.profile-sent-names-container .dog-card-large-background {
+    background-color: rgba(255, 242, 239, 0.88);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './DogCardSmall.css';
 
-import dogImage from '../../assets/dog-images/suzy.jpg';
+
 import favouriteIcon from '../../assets/favourite-filled.svg';
 import expandIcon from '../../assets/expand-solid.svg';
 import femaleIcon from '../../assets/female.svg';
@@ -27,7 +27,7 @@ export default function DogCardSmall() {
             </div>
 
             <div className='card-small-image'>
-                <img className='card-small-dog-image' src={dogImage} alt='dog' />
+                <img className='card-small-dog-image' src={'/dog-images/suzy.jpg'} alt='dog' />
                 <img className='card-small-favourite-icon' src={favouriteIcon} alt='heart' />
                 <img className='card-small-expand-icon' src={expandIcon} alt='expand' />
             </div>

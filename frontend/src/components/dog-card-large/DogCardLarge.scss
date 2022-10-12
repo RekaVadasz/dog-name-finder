@@ -16,10 +16,11 @@
 
     text-align: left;    
     background-color: #ffffff;
+    box-shadow: 11px 11px 23px -11px rgba(0, 0, 0, 0.06);
     
     .card-large-details {
         width: 340px;
-        height: 236px;
+        height: 100%;
         position: relative;
 
         .card-large-name-text {
@@ -70,6 +71,8 @@
             align-items: center;
             margin-top: 53px;
             margin-bottom: 6px;
+            position: absolute;
+            bottom: 29px;
 
             img {
                 margin-right: 8px;
@@ -85,6 +88,8 @@
         .card-large-uploader {
             display: flex;
             align-items: center;  
+            position: absolute;
+            bottom: 0;
 
             .card-large-uploader-text {
                 color: #757575;
@@ -121,12 +126,23 @@
     .card-large-image {
         position: relative;
 
+        .card-large-dog-image-placeholder {
+            width: 507px;
+            height: 507px;
+            object-fit: none;
+        }
         .card-large-dog-image {
             width: 507px;
             height: 507px;
             border-radius: 8px;
             object-fit: cover;
         }
+
+        .card-large-dog-image-d-none {
+            display: none;
+        }
+
+
 
         .card-large-close-icon {
             width: 33px;

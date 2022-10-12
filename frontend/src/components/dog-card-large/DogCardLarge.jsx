@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, React } from 'react';
 import './DogCardLarge.css';
 
 //import dogImage from '../../assets/dog-images/Guba.jpg';
@@ -7,10 +7,15 @@ import femaleIcon from '../../assets/female.svg';
 import mediumDogIcon from '../../assets/medium-size-dog.svg';
 import closeIcon from '../../assets/close-icon.svg';
 import heartIcon from '../../assets/heart-peach.svg';
+import imagePlaceholder from '../../assets/digging-dog.png';
 
 export default function DogCardLarge({ dog, handleExpand }) {
 
-    const dogImage = '/dog-images/Guba.jpg';
+    const [isImageLoaded, setImageLoaded] = useState(false)
+    const dogImage = dog.imageSrc;
+    console.log(dogImage)
+    console.log(isImageLoaded)
+
 
     return (
         <div className='card-large'>
@@ -47,7 +52,14 @@ export default function DogCardLarge({ dog, handleExpand }) {
             </div>
 
             <div className='card-large-image'>
-                <img className='card-large-dog-image' src={dogImage} alt='dog' />
+                {!isImageLoaded && <img className='card-large-dog-image-placeholder' src={imagePlaceholder} alt='dog digging'/>}
+
+                <img 
+                    className={isImageLoaded ? 'card-large-dog-image' : 'card-large-dog-image-d-none'} 
+                    src={dogImage} 
+                    alt='dog' 
+                    onLoad={() => setImageLoaded(true)} 
+                />  
                 <img className='card-large-favourite-icon' src={favouriteIcon} alt='heart' />
                 <img className='card-large-close-icon' src={closeIcon} alt='close' onClick={handleExpand}/>
             </div>

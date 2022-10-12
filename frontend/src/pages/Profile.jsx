@@ -4,9 +4,16 @@ import Layout from './Layout';
 import SendName from '../components/send-name/SendName';
 import DogCardSmall from '../components/dog-card-small/DogCardSmall';
 import NameCard from '../components/name-card/NameCard';
-import DogCardLarge from '../components/dog-card-large/DogCardLarge';
+
+import useFetch from '../hooks/useFetch';
 
 export default function Profile() {
+
+    const url = './api'
+    const { status, data } = useFetch(url);
+    console.log(status)  
+    console.log(data)
+
     return (
         <Layout>
                 <div className='profile-page-container'>
@@ -19,13 +26,20 @@ export default function Profile() {
                             <h2>Kutyanév beküldése</h2>
                             <SendName />
                         </div>
+
+                        {status === "fetched" &&
                         <div className='profile-sent-names-container'>
                             <h2>Beküldött nevek</h2>
-                            <NameCard dog={{name: "Róki"}}/>
+                            {data.map((dog) => {
+                                return (<NameCard dog={dog} key={dog.id}/>)
+                            })}
                         </div>
+                        
+                        }
+
+
                     </div>
                 </div>
-                <DogCardLarge />
-        </Layout>
+            </Layout>
     )
 }
