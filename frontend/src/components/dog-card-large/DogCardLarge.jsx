@@ -20,8 +20,6 @@ export default function DogCardLarge({ dog, handleExpand }) {
 
     const [isImageLoaded, setImageLoaded] = useState(false)
     const dogImage = dog.imageSrc;
-    console.log(dog.gender)
-    //console.log(isImageLoaded)
 
     const dogSizeImage = function(size) {
         switch (size) {

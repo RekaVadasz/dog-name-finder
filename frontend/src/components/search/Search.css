@@ -78,7 +78,8 @@
 }
 
 #search-section .search-container .search-form-container form .breed-dropdown {
-  /*                     label {
+  /*                     
+                    label {
                         position: relative;
                         
                         &::before {
@@ -94,7 +95,7 @@
                         }
 
                     }    
- */
+                    */
   /*                     
                     .css-b62m3t-container {
                     width: 300px;

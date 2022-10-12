@@ -4,6 +4,10 @@ const fs = require('fs');
 //const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
 
+app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 const port = 5000;
 
 
@@ -75,7 +79,6 @@ app.get('/api/search', (req, res) => {
                         }))
                     })
 
-
                 /* filteredDogList = dogList.filter(filterPhysicalAppearance)
                 filteredDogList.forEach(dog => {
                     if (traits.every(trait => {
@@ -108,28 +111,32 @@ app.get('/api/search', (req, res) => {
                             })
                         console.log("second (or more) iteration")
                         console.log(newDogList)
-                         
                     }
                 }
                 */
 
             }
         }
-        
         res.send(newDogList)
-       
-
     });
 });
 
 
+// - - - - POST to save a new dog - - - - 
+
+app.post('/addnewdog', (req, res) => {
+    console.log(req.body)
+    console.log(req.files.file)
+
+    res.send("dog received")
+
+})
 
 
 
 
 
-
-
+// - - - - PORT - - - - 
 
 app.listen(port, () => {
     console.log(`Example app listening on port http://127.0.0.1:${port}`)

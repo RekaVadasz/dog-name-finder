@@ -40,8 +40,9 @@ form fieldset .input-label, form fieldset #name-of-dog {
 form fieldset #name-of-dog {
   width: 192px;
   display: block;
-  color: #a3a3a3;
+  color: #000000;
   text-align: left;
+  cursor: text;
 }
 
 form fieldset .input-hidden:checked + .input-label {
@@ -50,10 +51,8 @@ form fieldset .input-hidden:checked + .input-label {
 }
 
 form .traits-checkbox label {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  height: 37px;
+  width: 134px;
+  height: 42px;
   padding: 10px 26px;
   line-height: 15px;
 }
@@ -75,23 +74,38 @@ form #image-upload-input::file-selector-button {
   cursor: pointer;
 }
 
-form .breed-dropdown .css-b62m3t-container {
-  width: 300px;
-  margin: 5px 0;
+form .breed-dropdown {
+  /* .css-b62m3t-container {
+            width: 300px;
+            margin: 5px 0;
+            border: 2px solid #F17E5B;
+            border-radius: 6px;
+
+            if no item is picked in dropdown
+            .css-1s2u09g-control {
+                border: none
+            }
+
+            if item is picked in dropdown
+            .css-1pahdxg-control {
+                border: none;
+                box-shadow: none;
+            }
+        } */
+}
+
+form .breed-dropdown select {
+  -webkit-appearance: auto;
+     -moz-appearance: auto;
+          appearance: auto;
+  width: 262px;
+  height: 42px;
+  padding-left: 9px;
   border: 2px solid #F17E5B;
   border-radius: 6px;
-  /* if no item is picked in dropdown */
-  /* if item is picked in dropdown */
-}
-
-form .breed-dropdown .css-b62m3t-container .css-1s2u09g-control {
-  border: none;
-}
-
-form .breed-dropdown .css-b62m3t-container .css-1pahdxg-control {
-  border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  margin-top: 6px;
+  margin-bottom: 7px;
+  font-size: 16px;
 }
 
 form button {

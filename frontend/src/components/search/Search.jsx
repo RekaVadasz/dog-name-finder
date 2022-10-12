@@ -26,11 +26,11 @@ export default function Search() {
     const [ url, setUrl ] = useState('') 
 
     const { status, data } = useFetch(url);  
-    console.log(data)
+    //console.log(data)
     //console.log(data.length)
 
-    const [inputs, setInputs] = useState({breed: 'mindegy', traits: []});
-    //console.log(inputs)
+    const [inputs, setInputs] = useState({gender: 'fiú', size: 'kicsi', breed: 'mindegy', traits: []});
+    console.log(inputs)
 
     // - - - -  input change handler - - - - 
     const handleChange = (event) => {
@@ -103,7 +103,8 @@ export default function Search() {
                                 id='male' 
                                 name='gender' 
                                 value='fiú'
-                                onChange={handleChange} 
+                                onChange={handleChange}
+                                checked={inputs.gender === 'fiú'}
                             />
                             <label className='input-label' htmlFor="male">Fiú</label>
 
@@ -113,7 +114,8 @@ export default function Search() {
                                 id='female' 
                                 name='gender' 
                                 value='lány'
-                                onChange={handleChange} 
+                                onChange={handleChange}
+                                checked={inputs.gender === 'lány'}
                             />
                             <label className='input-label' htmlFor="female">Lány</label>
                         </fieldset>
@@ -127,7 +129,8 @@ export default function Search() {
                                 id='small' 
                                 name='size' 
                                 value='kicsi'
-                                onChange={handleChange} 
+                                onChange={handleChange}
+                                checked={inputs.size === 'kicsi'}
                             />
                             <label className='input-label' htmlFor="small">Kicsi</label>
 
@@ -138,6 +141,7 @@ export default function Search() {
                                 name='size' 
                                 value='közepes'
                                 onChange={handleChange}
+                                checked={inputs.size === 'közepes'}
                             />
                             <label className='input-label' htmlFor="medium">Közepes</label>
 
@@ -148,6 +152,7 @@ export default function Search() {
                                 name='size' 
                                 value='nagy'
                                 onChange={handleChange}
+                                checked={inputs.size === 'nagy'}
                             />
                             <label className='input-label' htmlFor="large">Nagy</label>
                         </fieldset>

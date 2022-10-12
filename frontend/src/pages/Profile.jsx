@@ -11,8 +11,8 @@ export default function Profile() {
 
     const url = './api'
     const { status, data } = useFetch(url);
-    console.log(status)  
-    console.log(data)
+    //console.log(status)  
+    //console.log(data)
 
     return (
         <Layout>
