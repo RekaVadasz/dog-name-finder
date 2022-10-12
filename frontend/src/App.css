@@ -88,9 +88,12 @@ footer {
     font-weight: 500;
 }
 
+.profile-page-container .profile-right {
+    margin-bottom: 40px;
+}
+
 .profile-sent-names-container {
     max-width: 521px;
-    padding-bottom: 40px;
 }
 
 .profile-sent-names-container .dog-card-large-background {

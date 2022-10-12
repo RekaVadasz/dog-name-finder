@@ -3,8 +3,15 @@ import './DogCardLarge.css';
 
 //import dogImage from '../../assets/dog-images/Guba.jpg';
 import favouriteIcon from '../../assets/favourite-filled.svg';
+
 import femaleIcon from '../../assets/female.svg';
-import mediumDogIcon from '../../assets/medium-size-dog.svg';
+import maleIcon from '../../assets/male.svg';
+
+import smallDogIcon from '../../assets/small-size-dog.png';
+import mediumDogIcon from '../../assets/medium-size-dog.png';
+import largeDogIcon from '../../assets/large-size-dog.png';
+
+
 import closeIcon from '../../assets/close-icon.svg';
 import heartIcon from '../../assets/heart-peach.svg';
 import imagePlaceholder from '../../assets/digging-dog.png';
@@ -13,8 +20,21 @@ export default function DogCardLarge({ dog, handleExpand }) {
 
     const [isImageLoaded, setImageLoaded] = useState(false)
     const dogImage = dog.imageSrc;
-    console.log(dogImage)
-    console.log(isImageLoaded)
+    console.log(dog.gender)
+    //console.log(isImageLoaded)
+
+    const dogSizeImage = function(size) {
+        switch (size) {
+            case "kicsi":
+                return smallDogIcon;
+            case "közepes":
+                return mediumDogIcon;
+            case "nagy":
+                return largeDogIcon;
+            default:
+                return null
+        }
+    }
 
 
     return (
@@ -44,11 +64,17 @@ export default function DogCardLarge({ dog, handleExpand }) {
                 </div>
                 <div className='card-large-uploader'>
                     <span className='card-large-uploader-text'>beküldő:</span>
-                    <span className='card-large-uploader-name'>Réka</span>
+                    <span className='card-large-uploader-name'>{dog.uploader}</span>
                 </div>
 
-                <img className='card-large-gender-icon' src={femaleIcon} alt='female' />
-                <img className='card-large-size-icon' src={mediumDogIcon} alt='medium dog' />
+                {dog.gender === "fiú" 
+                ?
+                <img src={maleIcon} className='card-large-gender-icon' alt="male icon"/>
+                : 
+                <img src={femaleIcon} className='card-large-gender-icon' alt="female icon"/>}
+                
+                <img className='card-large-size-icon' src={dogSizeImage(dog.size)} alt='medium dog' />
+
             </div>
 
             <div className='card-large-image'>
