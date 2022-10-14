@@ -1,12 +1,16 @@
 const express = require('express');
 const app =express();
 const fs = require('fs');
-//const fileUpload = require('express-fileupload');
+const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
+
+
 
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(fileUpload());
+
 
 const port = 5000;
 
@@ -124,7 +128,7 @@ app.get('/api/search', (req, res) => {
 
 // - - - - POST to save a new dog - - - - 
 
-app.post('/addnewdog', (req, res) => {
+app.post('/addnewdog', function(req, res) {
     console.log(req.body)
     console.log(req.files.file)
 

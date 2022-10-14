@@ -18,6 +18,9 @@ const options = [
 export default function SendName() {
 
     const [inputs, setInputs] = useState({gender: 'fiú', size: 'kicsi', traits: []});
+    const [selectedFile, setSelectedFile] = useState(null)
+    console.log(selectedFile)
+
     console.log(inputs)
 
     // - - - -  input change handler - - - - 
@@ -47,19 +50,27 @@ export default function SendName() {
 
     }
 
+    // - - - - input change handler - File - - - - 
     const handleChangeFile = (event) => {
-        setInputs(values => ({...values, file: event.target.files[0]}))
+        setSelectedFile(event.target.files[0])
+        
     }
     
+    // - - - - handle Submit - - - - 
     const handleSubmit = async function(event) {
         event.preventDefault();
+
+        const formData = new FormData();
+        formData.append('file', selectedFile);
+        formData.append('object', JSON.stringify(inputs))
+
         
         await fetch('./addnewdog', {
             method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(inputs)
+            //headers: { 'Content-Type': 'multipart/form-data' },
+            body: formData
         })
-        console.log(inputs)
+        
         console.log("posted")
 
     }
