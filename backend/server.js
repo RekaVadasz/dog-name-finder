@@ -3,6 +3,7 @@ const app =express();
 const fs = require('fs');
 const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser');
+// const path = require('path'); ??
 
 
 
@@ -10,6 +11,7 @@ app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(fileUpload());
+app.use(express.static('../frontend'));
 
 
 const port = 5000;
@@ -128,11 +130,36 @@ app.get('/api/search', (req, res) => {
 
 // - - - - POST to save a new dog - - - - 
 
-app.post('/addnewdog', function(req, res) {
-    console.log(req.body)
+app.post('/addnewdog', (req, res) => {
+    const newDog = JSON.parse(req.body.object)
+    console.log(newDog.name)
     console.log(req.files.file)
 
-    res.send("dog received")
+    fs.readFile('dog-names-data.json', 'utf8', function (err, data) {
+        let dogs = JSON.parse(data);
+
+        newDog.id = (dogs[dogs.length - 1].id) + 1;
+        newDog.imageSrc = `/dog-images/${req.files.file.name}`;
+        newDog.uploader = 'Réka';
+
+        dogs.push(newDog)
+
+        fs.writeFile('dog-names-data.json', JSON.stringify(dogs, null, 4), function (err) {
+            if (err) throw err;
+        });
+
+    })
+
+    const uploadPath = '../frontend/public/dog-images/' + req.files.file.name; //feltöltött fájlok helye
+
+    req.files.file.mv(uploadPath, function (err) {
+        if (err)
+            return res.status(500).send(err);
+        res.send('File uploaded and new pizza added!');
+    })
+
+
+    //res.send("dog received")
 
 })
 
