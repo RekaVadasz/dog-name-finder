@@ -1,5 +1,6 @@
-import { useState, React } from 'react';
-import Select from 'react-select';
+import { useState, useEffect, React } from 'react';
+//import Select from 'react-select';
+
 
 import './SendName.css';
 
@@ -15,13 +16,27 @@ const options = [
     { value: 'törpespicc', label: 'Törpespicc' }
 ]
 
-export default function SendName() {
+export default function SendName({allDogs}) {
 
+    console.log(allDogs)
+
+    
+    const [dogBreeds, setDogBreeds] = useState([])
     const [inputs, setInputs] = useState({gender: 'fiú', size: 'kicsi', traits: []});
-    const [selectedFile, setSelectedFile] = useState(null)
-    console.log(selectedFile)
+    const [selectedFile, setSelectedFile] = useState(null);
+    
+    useEffect(() => {
+        let dogBreeds = [];
+        allDogs.forEach(dog => {
+            if (!dogBreeds.includes(dog.breed)) {
+                dogBreeds.push(dog.breed)
+            }
+        })
+        setDogBreeds(dogBreeds.sort())
+    }, [allDogs])
+    
+    console.log(dogBreeds)
 
-    console.log(inputs)
 
     // - - - -  input change handler - - - - 
     const handleChange = (event) => {
@@ -159,15 +174,16 @@ export default function SendName() {
             <fieldset className='breed-dropdown'>
                 <legend>Fajtája:</legend>
                 <label htmlFor="breed">
-                    <select required={true} name='breed' onChange={handleChange}>
-                        <option value='' disabled={true} selected={true}>Válassz egy fajtát!</option>
-                        <option value='keverék'>Keverék</option>
-                        <option value='pumi'>Pumi</option>
-                        <option value='tacskó'>Tacskó</option>
-                        <option value='vizsla'>Vizsla</option>
-                        <option value='törpe pincser'>Törpe pincser</option>
-                        <option value='border collie'>Border collie</option>
-                        <option value='mudi'>Mudi</option>
+                    <select 
+                        name='breed' 
+                        onChange={handleChange} 
+                        defaultValue='default'
+                        required={true} 
+                    >
+                        <option value='default' disabled={true}>Válassz egy fajtát!</option>
+                        {dogBreeds.map(breed => {
+                            return (<option value={breed}>{breed}</option>)
+                        })}
                     </select>
                 </label>
             </fieldset>
@@ -272,6 +288,7 @@ export default function SendName() {
                 id='image-upload-input' 
                 name='image-upload-input'
                 onChange={handleChangeFile}
+                required={true}
             />
 
             <button onClick={handleSubmit}>Beküldöm a kutyát!</button>

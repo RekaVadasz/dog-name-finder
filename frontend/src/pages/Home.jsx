@@ -7,13 +7,19 @@ import Search from '../components/search/Search';
 import RandomName from '../components/random-name/RandomName';
 import Registration from '../components/registration/Registration';
 
+import useFetch from '../hooks/useFetch';
 
 export default function Home() {
-  return (
+
+    const url = './api'
+    const { status, data } = useFetch(url);
+
+
+    return (
         <Layout>
             <Hero />
             <WalkingPaw />
-            <Search />
+            <Search allDogs={data}/>
             <RandomName />
             <Registration />
         </Layout>

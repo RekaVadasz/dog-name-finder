@@ -88,6 +88,10 @@ form {
             margin-top: 6px;
             margin-bottom: 7px;
             font-size: 16px;
+
+            [value='keverék'] {
+                font-weight: 600;
+            }
         }
         
         /* .css-b62m3t-container {

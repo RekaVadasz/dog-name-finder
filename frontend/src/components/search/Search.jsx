@@ -21,7 +21,7 @@ const options = [
     { value: 'törpespicc', label: 'Törpespicc' }
 ]
 
-export default function Search() {
+export default function Search({allDogs}) {
 
     const [ url, setUrl ] = useState('') 
 
@@ -29,8 +29,19 @@ export default function Search() {
     //console.log(data)
     //console.log(data.length)
 
+    const [dogBreeds, setDogBreeds] = useState([])
     const [inputs, setInputs] = useState({gender: 'fiú', size: 'kicsi', breed: 'mindegy', traits: []});
     console.log(inputs)
+
+    useEffect(() => {
+        let dogBreeds = [];
+        allDogs.forEach(dog => {
+            if (!dogBreeds.includes(dog.breed)) {
+                dogBreeds.push(dog.breed)
+            }
+        })
+        setDogBreeds(dogBreeds.sort())
+    }, [allDogs])
 
     // - - - -  input change handler - - - - 
     const handleChange = (event) => {
@@ -167,14 +178,10 @@ export default function Search() {
                                 />
  */}
                                 <select name='breed' value={inputs.breed} onChange={handleChange}>
-                                    <option value='mindegy'>Mindegy</option>
-                                    <option value='keverék'>Keverék</option>
-                                    <option value='pumi'>Pumi</option>
-                                    <option value='tacskó'>Tacskó</option>
-                                    <option value='vizsla'>Vizsla</option>
-                                    <option value='törpe pincser'>Törpe pincser</option>
-                                    <option value='border collie'>Border collie</option>
-                                    <option value='mudi'>Mudi</option>
+                                    <option value='mindegy'>mindegy</option>
+                                    {dogBreeds.map(breed => {
+                                        return (<option value={breed}>{breed}</option>)
+                                    })}
                                 </select>
                             </label>
                         </fieldset>

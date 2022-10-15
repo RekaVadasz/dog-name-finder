@@ -24,7 +24,7 @@ export default function Profile() {
                     <div className='profile-right'>
                         <div className='profile-form-container'>
                             <h2>Kutyanév beküldése</h2>
-                            <SendName />
+                            <SendName allDogs={data}/>
                         </div>
 
                         {status === "fetched" &&
