@@ -20,7 +20,7 @@ export default function Home() {
             <Hero />
             <WalkingPaw />
             <Search allDogs={data}/>
-            <RandomName />
+            <RandomName allDogs={data} />
             <Registration />
         </Layout>
     )

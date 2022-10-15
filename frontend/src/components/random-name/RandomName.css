@@ -1,5 +1,6 @@
 #random-name-section {
   padding: 0 75px 75px;
+  position: relative;
   /* background-color: #FBFAFE; */
 }
 
@@ -66,5 +67,90 @@
   right: 30px;
   top: 3px;
   background-image: url("../../assets/ball.png");
+}
+
+#random-name-section .ball-illustration .bounce {
+  -webkit-animation: bounce 2s ease-in;
+          animation: bounce 2s ease-in;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  15% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  30% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  45% {
+    -webkit-transform: translateY(-66px);
+            transform: translateY(-66px);
+  }
+  60% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(-33px);
+            transform: translateY(-33px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  15% {
+    -webkit-transform: translateY(-100px);
+            transform: translateY(-100px);
+  }
+  30% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  45% {
+    -webkit-transform: translateY(-66px);
+            transform: translateY(-66px);
+  }
+  60% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  75% {
+    -webkit-transform: translateY(-33px);
+            transform: translateY(-33px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+#random-name-section .name-card {
+  position: absolute;
+  right: 197px;
+  top: 195px;
+  background-color: #FFF2EF;
+  z-index: 99;
+}
+
+#random-name-section .dog-card-large-background {
+  background-color: rgba(255, 242, 239, 0.88);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
 }
 /*# sourceMappingURL=RandomName.css.map */
