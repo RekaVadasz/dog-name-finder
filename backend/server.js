@@ -155,7 +155,7 @@ app.post('/addnewdog', (req, res) => {
     req.files.file.mv(uploadPath, function (err) {
         if (err)
             return res.status(500).send(err);
-        res.send('File uploaded and new pizza added!');
+        res.send('Image uploaded and new dog added!');
     })
 
 

@@ -11,7 +11,8 @@ import { NavLink } from 'react-router-dom';
 // NavLink can be styled based on whether it is active or not
 
 import { HashLink } from 'react-router-hash-link';
-
+import UserContext from '../../providers/UserContext';
+import { useContext } from 'react';
 
 // this function is for Hashlink to scroll with offset of 120px
 const scrollWithOffset = (el) => {
@@ -27,7 +28,9 @@ scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -120) }}
 
 export default function Header() {
 
-    const [isLoggedIn, setLoggedIn] = useState(false);
+    const { user, isLoggedIn, logInAndOut } = useContext(UserContext);
+
+    //const [isLoggedIn, setLoggedIn] = useState(false);
 
     return (
         <header>
@@ -92,7 +95,7 @@ export default function Header() {
                 {!isLoggedIn
                 &&
                 <div className='login-register'>
-                    <button className='login-button' onClick={() => {setLoggedIn(true)}}><NavLink to='/profile'>Bejelentkezés</NavLink></button>
+                    <button className='login-button' onClick={logInAndOut}>Bejelentkezés</button>
                     <button className='register-button'>
                         <HashLink 
                             smooth 
@@ -107,8 +110,10 @@ export default function Header() {
                 &&
                 <div className='profile-logout'>
                     <img src={profileIcon} alt='profile icon' />
-                    <div>Réka</div>
-                    <img onClick={() => {setLoggedIn(false)}} src={logoutIcon} alt='logout'/>
+                    <div>
+                        <NavLink to='/profile'>{user.name}</NavLink>
+                    </div>
+                    <img onClick={logInAndOut} src={logoutIcon} alt='logout'/>
                 </div>
                 }
             </div>
