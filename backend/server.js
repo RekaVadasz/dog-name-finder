@@ -2,7 +2,9 @@ const express = require('express');
 const app =express();
 const fs = require('fs');
 const fileUpload = require('express-fileupload');
-const bodyParser = require('body-parser');
+const bodyParser = require('body-parser'); // to read POST request body
+const { db } = require('./admin'); // from admin.js, firestore
+const bcrypt = require('bcrypt'); // library to hash passwords
 // const path = require('path'); ??
 
 
@@ -16,7 +18,39 @@ app.use(express.static('../frontend'));
 
 const port = 5000;
 
+// - - - - POST to register new user in Firebase - - - - 
 
+app.post('/register', async (req, res) => {
+    const userName = req.body.userName;
+    const plainTextPassword = req.body.password;
+    
+    
+    const usersRef = db.collection('users'); // we choose the colection from Firebase which we want to check
+    
+    const newUser = usersRef.doc()
+    
+    const snapShot = await usersRef.where('userName', '==', userName).get(); //compare given username to the ones in the database
+    
+    
+    /* snapShot.forEach(element => {
+        console.log(element.data())
+    }); */ 
+
+    if (snapShot.empty) {
+        bcrypt.hash(plainTextPassword, 10, (err, hash) => {
+            const user = {
+                'userName': userName,
+                'password': hash
+            }
+            newUser.set(user)
+            res.sendStatus(200).end
+        })
+    } else {
+        res.sendStatus(418)
+    }
+
+
+})
 
 // - - - - - GET to have all dogs - - - - - 
 
