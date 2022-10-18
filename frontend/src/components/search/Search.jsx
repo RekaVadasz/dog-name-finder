@@ -179,8 +179,8 @@ export default function Search({allDogs}) {
  */}
                                 <select name='breed' value={inputs.breed} onChange={handleChange}>
                                     <option value='mindegy'>mindegy</option>
-                                    {dogBreeds.map(breed => {
-                                        return (<option value={breed}>{breed}</option>)
+                                    {dogBreeds.map((breed, index) => {
+                                        return (<option key = {index} value={breed}>{breed}</option>)
                                     })}
                                 </select>
                             </label>

@@ -11,7 +11,7 @@ import { NavLink } from 'react-router-dom';
 // NavLink can be styled based on whether it is active or not
 
 import { HashLink } from 'react-router-hash-link';
-import UserContext from '../../providers/UserContext';
+import AuthContext from '../../contexts/AuthContext';
 import { useContext } from 'react';
 
 // this function is for Hashlink to scroll with offset of 120px
@@ -28,7 +28,7 @@ scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -120) }}
 
 export default function Header() {
 
-    const { user, isLoggedIn, logInAndOut } = useContext(UserContext);
+    const { user, isLoggedIn, logInAndOut } = useContext(AuthContext);
 
     //const [isLoggedIn, setLoggedIn] = useState(false);
 

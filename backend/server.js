@@ -18,6 +18,8 @@ app.use(express.static('../frontend'));
 
 const port = 5000;
 
+
+
 // - - - - POST to register new user in Firebase - - - - 
 
 app.post('/register', async (req, res) => {
@@ -25,17 +27,12 @@ app.post('/register', async (req, res) => {
     const plainTextPassword = req.body.password;
     
     
-    const usersRef = db.collection('users'); // we choose the colection from Firebase which we want to check
+    const usersRef = db.collection('users'); // we choose the collection from Firebase which we want to check
     
     const newUser = usersRef.doc()
     
     const snapShot = await usersRef.where('userName', '==', userName).get(); //compare given username to the ones in the database
     
-    
-    /* snapShot.forEach(element => {
-        console.log(element.data())
-    }); */ 
-
     if (snapShot.empty) {
         bcrypt.hash(plainTextPassword, 10, (err, hash) => {
             const user = {
@@ -46,11 +43,46 @@ app.post('/register', async (req, res) => {
             res.sendStatus(200).end
         })
     } else {
-        res.sendStatus(418)
+        res.send('The username already exists in database, cannot register')
+    } 
+
+
+})
+
+
+
+// - - - - Login - - - - 
+
+app.post('/login', async (req, res) => {
+    const userName = req.body.userName;
+    const plainTextPassword = req.body.password;
+    const usersRef = db.collection('users');
+    const snapShot = await usersRef.get();
+
+    let userFound = false;
+
+    if (!snapShot.empty) {
+        snapShot.forEach(doc => {
+            if (doc.data().userName === userName) {
+                userFound = true;
+                const correctPassword = bcrypt.compareSync(plainTextPassword, doc.data().password); // boolean
+                if (correctPassword) {
+                    res.sendStatus(200)
+                } else {
+                    res.send('Incorrect password')
+                }
+            } 
+        }); 
+        
+        //what if username is not found in database?   
+        if (!userFound) {
+            res.send('Username is not found in database')
+        }
     }
 
 
 })
+
 
 // - - - - - GET to have all dogs - - - - - 
 
