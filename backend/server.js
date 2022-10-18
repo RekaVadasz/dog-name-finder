@@ -26,11 +26,8 @@ app.post('/register', async (req, res) => {
     const userName = req.body.userName;
     const plainTextPassword = req.body.password;
     
-    
     const usersRef = db.collection('users'); // we choose the collection from Firebase which we want to check
-    
     const newUser = usersRef.doc()
-    
     const snapShot = await usersRef.where('userName', '==', userName).get(); //compare given username to the ones in the database
     
     if (snapShot.empty) {
@@ -45,7 +42,6 @@ app.post('/register', async (req, res) => {
     } else {
         res.send('The username already exists in database, cannot register')
     } 
-
 
 })
 
