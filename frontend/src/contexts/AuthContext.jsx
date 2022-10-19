@@ -1,15 +1,23 @@
 import {React, createContext, useState } from 'react';
 
+
 const AuthContext = createContext();
 
 export function AuthProvider({children}) {
 
+   
+
     const [userData, setUserData] = useState();
     const [isLoggedIn, setLoggedIn] = useState(false);
 
-    const logInAndOut = () => {
-        setLoggedIn(!isLoggedIn)
+    const logIn = () => {
+        setLoggedIn(true)
 
+    }
+
+    const logOut = () => {
+        setLoggedIn(false);
+        
     }
 
     const setUser = (userData) => {
@@ -18,7 +26,7 @@ export function AuthProvider({children}) {
 
 
     return (
-        <AuthContext.Provider value={{userData, setUser}}>
+        <AuthContext.Provider value={{userData, setUser, isLoggedIn, logIn, logOut}}>
             {children}
         </AuthContext.Provider>
     )

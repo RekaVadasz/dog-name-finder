@@ -18,7 +18,7 @@ const options = [
 
 export default function SendName({allDogs}) {
 
-    console.log(allDogs)
+    //console.log(allDogs)
 
     
     const [dogBreeds, setDogBreeds] = useState([])
@@ -35,7 +35,7 @@ export default function SendName({allDogs}) {
         setDogBreeds(dogBreeds.sort())
     }, [allDogs])
     
-    console.log(dogBreeds)
+    //console.log(dogBreeds)
 
 
     // - - - -  input change handler - - - - 
@@ -59,7 +59,7 @@ export default function SendName({allDogs}) {
 
         } else {
             const newTraits = traits.filter(trait => {return trait !== newTrait})
-            console.log(newTraits)
+           //console.log(newTraits)
             setInputs((values) => ({...values, [name]: newTraits}))
         }
 
@@ -181,8 +181,8 @@ export default function SendName({allDogs}) {
                         required={true} 
                     >
                         <option value='default' disabled={true}>Válassz egy fajtát!</option>
-                        {dogBreeds.map(breed => {
-                            return (<option value={breed}>{breed}</option>)
+                        {dogBreeds.map((breed, index) => {
+                            return (<option key={index} value={breed}>{breed}</option>)
                         })}
                     </select>
                 </label>

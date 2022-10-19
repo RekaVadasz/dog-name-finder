@@ -17,7 +17,7 @@ const scrollWithOffset = (el) => {
 
 export default function Login() {
 
-    const { setUser } = useContext(AuthContext);
+    const { setUser, logIn } = useContext(AuthContext);
 
     const usernameRef = useRef();
     const passwordRef = useRef();
@@ -47,8 +47,9 @@ export default function Login() {
                 body: JSON.stringify({'username': usernameRef.current.value, 'password': passwordRef.current.value})
             });
             const data = await response.json();
-            setUser(data)
-            //navigate('/profile')
+            setUser(data);
+            logIn();
+            navigate('/profile')
         } catch {
             setError('failed to login')
         }

@@ -9,7 +9,7 @@ import AuthContext from '../../contexts/AuthContext';
 //import AnchorLink from 'react-anchor-link-smooth-scroll'; --- v2 has come out since
 //import AnchorLink from 'react-anchor-link-smooth-scroll-v2';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 // NavLink can be styled based on whether it is active or not
 
 import { HashLink } from 'react-router-hash-link';
@@ -26,12 +26,28 @@ inline solution, but with no smooth scroll:
 scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -120) }} 
 */
 
+// scroll to bottom when Contact is clicked regardless of page we are on
+function scrollToBottom() {
+    window.scroll({
+        top: document.body.offsetHeight,
+        left: 0, 
+        behavior: 'smooth',
+    });
+}
+
 
 export default function Header() {
 
-    const { userData, isLoggedIn, logInAndOut } = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    //const [isLoggedIn, setLoggedIn] = useState(false);
+    const { userData, isLoggedIn, logOut } = useContext(AuthContext);
+    //console.log(userData)
+
+    const headerLogOut = () => {
+        logOut();
+        navigate('/login')
+    }
+
 
     return (
         <header>
@@ -70,7 +86,9 @@ export default function Header() {
                                     >Random
                                 </HashLink>
                             </li>
-
+                            
+                            {!isLoggedIn
+                            &&
                             <li>
                                 <HashLink 
                                     smooth 
@@ -78,24 +96,26 @@ export default function Header() {
                                     to='/home#registration-section'
                                     >Regisztráció
                                 </HashLink>
-                            </li>
+                            </li>}
 
-                            <li>
+                            {/* <li>
                                 <HashLink 
                                     smooth 
                                     scroll={el => scrollWithOffset(el)}
                                     to='/#footer'
                                     >Kontakt
                                 </HashLink>
-                            </li>
+                            </li> */}
+                            <li onClick={scrollToBottom}>Kontakt</li>
 
                         </ul>
                     </nav>
                 </div>
 
-            
+                {!isLoggedIn 
+                &&
                 <div className='login-register'>
-                    <button className='login-button' /* onClick={logInAndOut} */>
+                    <button className='login-button'>
                         <NavLink to='/login'>
                             Bejelentkezés
                         </NavLink>
@@ -108,18 +128,18 @@ export default function Header() {
                             >Regisztráció
                         </HashLink>
                     </button>
-                </div>
+                </div>}
 
-{/*                 {isLoggedIn
+                {isLoggedIn
                 &&
                 <div className='profile-logout'>
                     <img src={profileIcon} alt='profile icon' />
                     <div>
-                        <NavLink to='/profile'>{user.name}</NavLink>
+                        <NavLink to='/profile'>{userData.username}</NavLink>
                     </div>
-                    <img onClick={logInAndOut} src={logoutIcon} alt='logout'/>
-                </div>
-                } */}
+                    <img onClick={headerLogOut} src={logoutIcon} alt='logout'/>
+                </div>}
+
             </div>
         </header>
     )

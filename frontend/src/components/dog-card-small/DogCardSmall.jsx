@@ -1,37 +1,82 @@
-import React from 'react';
+import { useState, React } from 'react';
 import './DogCardSmall.css';
+import DogCardLarge from '../dog-card-large/DogCardLarge';
 
 
 import favouriteIcon from '../../assets/favourite-filled.svg';
 import expandIcon from '../../assets/expand-solid.svg';
-import femaleIcon from '../../assets/female.svg';
-import mediumDogIcon from '../../assets/medium-size-dog.svg';
 
-export default function DogCardSmall() {
+import femaleIcon from '../../assets/female.svg';
+import maleIcon from '../../assets/male.svg';
+
+import smallDogIcon from '../../assets/small-size-dog.png';
+import mediumDogIcon from '../../assets/medium-size-dog.png';
+import largeDogIcon from '../../assets/large-size-dog.png';
+
+export default function DogCardSmall({dog}) {
+
+    const [ isExpanded, setExpanded ] = useState(false)
+
+    const dogImage = dog.imageSrc;
+
+    const dogSizeImage = function(size) {
+        switch (size) {
+            case "kicsi":
+                return smallDogIcon;
+            case "közepes":
+                return mediumDogIcon;
+            case "nagy":
+                return largeDogIcon;
+            default:
+                return null
+        }
+    }
+
+    const handleExpand = () => {
+        setExpanded(!isExpanded)
+    }
+
     return (
+        <>
         <div className='card-small'>
 
             <div className='card-small-details'>
-                <div className='card-small-name'>Suzy</div>
+                <div className='card-small-name'>{dog.name}</div>
                 <div className='card-small-breed-text'>fajtája:</div>
-                <div className='card-small-breed'>keverék</div>
+                <div className='card-small-breed'>{dog.breed}</div>
                 <div className='card-small-traits-text'>jellemzők:</div>
                 <div className='card-small-traits'>
-                    <div>Játékos</div>
-                    <div>Aktív</div>
-                    <div>Bújós</div>
-                    <div>Falánk</div>
+                    {dog.traits.map((trait, index) => (
+                        <div key={index}>
+                            {trait}
+                        </div>
+                    ))}
                 </div>
-                <img className='card-small-gender-icon' src={femaleIcon} alt='female' />
-                <img className='card-small-size-icon' src={mediumDogIcon} alt='medium dog' />
+               
+                {dog.gender === "fiú" 
+                ?
+                <img src={maleIcon} className='card-small-gender-icon' alt="male icon"/>
+                : 
+                <img src={femaleIcon} className='card-small-gender-icon' alt="female icon"/>}
+                
+                <img className='card-small-size-icon' src={dogSizeImage(dog.size)} alt='medium dog' />
             </div>
 
             <div className='card-small-image'>
-                <img className='card-small-dog-image' src={'/dog-images/suzy.jpg'} alt='dog' />
+                <img className='card-small-dog-image' src={dogImage} alt='dog' />
                 <img className='card-small-favourite-icon' src={favouriteIcon} alt='heart' />
-                <img className='card-small-expand-icon' src={expandIcon} alt='expand' />
+                <img className='card-small-expand-icon' src={expandIcon} alt='expand' onClick={handleExpand} />
             </div>
 
         </div>
+
+        {
+        isExpanded
+        &&
+        <div className='dog-card-large-background' onClick={handleExpand}>
+            <DogCardLarge dog={dog} handleExpand={handleExpand}/>
+        </div>
+        }
+        </>
     )
 }
