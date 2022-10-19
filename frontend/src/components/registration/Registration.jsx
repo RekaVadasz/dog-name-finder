@@ -10,6 +10,7 @@ export default function Registration() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
+    // - - - - handle submit - - - - 
 
     const handleSubmit = async function (e) {
         e.preventDefault();
@@ -30,7 +31,6 @@ export default function Registration() {
             setLoading(true)
             await fetch('./register', {
                 method: "POST",
-                //headers: { 'Content-Type': 'multipart/form-data' },
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({'username': usernameRef.current.value, 'password': passwordRef.current.value})
             })

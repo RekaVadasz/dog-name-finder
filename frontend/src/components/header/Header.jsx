@@ -4,6 +4,8 @@ import './Header.css';
 import logoutIcon from '../../assets/logout.svg';
 import profileIcon from '../../assets/profile.svg';
 
+import AuthContext from '../../contexts/AuthContext';
+
 //import AnchorLink from 'react-anchor-link-smooth-scroll'; --- v2 has come out since
 //import AnchorLink from 'react-anchor-link-smooth-scroll-v2';
 
@@ -11,7 +13,6 @@ import { NavLink } from 'react-router-dom';
 // NavLink can be styled based on whether it is active or not
 
 import { HashLink } from 'react-router-hash-link';
-import AuthContext from '../../contexts/AuthContext';
 import { useContext } from 'react';
 
 // this function is for Hashlink to scroll with offset of 120px
@@ -28,7 +29,7 @@ scroll={el => { el.scrollIntoView(true); window.scrollBy(0, -120) }}
 
 export default function Header() {
 
-    const { user, isLoggedIn, logInAndOut } = useContext(AuthContext);
+    const { userData, isLoggedIn, logInAndOut } = useContext(AuthContext);
 
     //const [isLoggedIn, setLoggedIn] = useState(false);
 
@@ -92,10 +93,13 @@ export default function Header() {
                     </nav>
                 </div>
 
-                {!isLoggedIn
-                &&
+            
                 <div className='login-register'>
-                    <button className='login-button' onClick={logInAndOut}>Bejelentkezés</button>
+                    <button className='login-button' /* onClick={logInAndOut} */>
+                        <NavLink to='/login'>
+                            Bejelentkezés
+                        </NavLink>
+                    </button>
                     <button className='register-button'>
                         <HashLink 
                             smooth 
@@ -104,9 +108,9 @@ export default function Header() {
                             >Regisztráció
                         </HashLink>
                     </button>
-                </div>}
+                </div>
 
-                {isLoggedIn
+{/*                 {isLoggedIn
                 &&
                 <div className='profile-logout'>
                     <img src={profileIcon} alt='profile icon' />
@@ -115,7 +119,7 @@ export default function Header() {
                     </div>
                     <img onClick={logInAndOut} src={logoutIcon} alt='logout'/>
                 </div>
-                }
+                } */}
             </div>
         </header>
     )

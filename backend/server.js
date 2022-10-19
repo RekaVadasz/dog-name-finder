@@ -68,7 +68,12 @@ app.post('/login', async (req, res) => {
                 userFound = true;
                 const correctPassword = bcrypt.compareSync(plainTextPassword, doc.data().password); // boolean
                 if (correctPassword) {
-                    res.sendStatus(200)
+                    const userData = {
+                        username: doc.data().username,
+                        favs: doc.data().favs,
+                        sent: doc.data().sent
+                    }
+                    res.send(userData)
                 } else {
                     res.send('Incorrect password')
                 }
