@@ -24,6 +24,7 @@
         border: 2px solid #F17E5B;
         border-radius: 6px;
         margin: 0 auto 65px;
+        position: relative;
 
         legend {
             margin-bottom: 34px;
@@ -46,6 +47,17 @@
             margin-top: 7px;
             display: block;
         }
+
+        .register-error-missing-fields, .register-error-passwords-match {
+            width: fit-content;
+            height: 37px;
+            padding: 11px;
+            border-radius: 6px;
+            background-color: #FBC2B1;
+            position: absolute;
+            bottom: 99px;
+        }
+        
 
 
         button {

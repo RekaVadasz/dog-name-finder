@@ -23,24 +23,29 @@ const port = 5000;
 // - - - - POST to register new user in Firebase - - - - 
 
 app.post('/register', async (req, res) => {
-    const userName = req.body.userName;
+    const username = req.body.username;
     const plainTextPassword = req.body.password;
+
+    console.log(username)
+    console.log(plainTextPassword)
     
     const usersRef = db.collection('users'); // we choose the collection from Firebase which we want to check
     const newUser = usersRef.doc()
-    const snapShot = await usersRef.where('userName', '==', userName).get(); //compare given username to the ones in the database
+    const snapShot = await usersRef.where('username', '==', username).get(); //compare given username to the ones in the database
+    console.log(snapShot)
     
     if (snapShot.empty) {
         bcrypt.hash(plainTextPassword, 10, (err, hash) => {
             const user = {
-                'userName': userName,
+                'username': username,
                 'password': hash
             }
             newUser.set(user)
-            res.sendStatus(200).end
+            res.send('New user registered')
         })
     } else {
-        res.send('The username already exists in database, cannot register')
+        res.sendStatus(418)
+        //res.send('The username already exists in database, cannot register')
     } 
 
 })
@@ -50,7 +55,7 @@ app.post('/register', async (req, res) => {
 // - - - - Login - - - - 
 
 app.post('/login', async (req, res) => {
-    const userName = req.body.userName;
+    const username = req.body.username;
     const plainTextPassword = req.body.password;
     const usersRef = db.collection('users');
     const snapShot = await usersRef.get();
@@ -59,7 +64,7 @@ app.post('/login', async (req, res) => {
 
     if (!snapShot.empty) {
         snapShot.forEach(doc => {
-            if (doc.data().userName === userName) {
+            if (doc.data().username === username) {
                 userFound = true;
                 const correctPassword = bcrypt.compareSync(plainTextPassword, doc.data().password); // boolean
                 if (correctPassword) {

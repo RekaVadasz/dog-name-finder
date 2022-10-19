@@ -7,27 +7,38 @@ export default function Registration() {
     const passwordRef = useRef();
     const passwordConfirmRef = useRef();
     
-
-
-    const [userDetails, setUserDetails] = useState({});
     const [error, setError] = useState('')
-    console.log(error)
+    const [loading, setLoading] = useState(false)
 
 
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async function (e) {
         e.preventDefault();
 
-        if (!usernameRef.current.value) {
-            setError('Username missing')
+        if (!usernameRef.current.value || !passwordRef.current.value || !passwordConfirmRef.current.value) {
+            setError('missing input')
             return
         }
 
         if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-            setError('Passwords do not match')
+            setError('passwords different')
+            return
         }
 
+        setError('')
 
+        try {
+            setLoading(true)
+            await fetch('./register', {
+                method: "POST",
+                //headers: { 'Content-Type': 'multipart/form-data' },
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({'username': usernameRef.current.value, 'password': passwordRef.current.value})
+            })
+        } catch {
+            setError('failed to create account')
+        }
+        setLoading(false)
+        console.log("posted")
     }
 
 
@@ -68,8 +79,10 @@ export default function Registration() {
                     ref={passwordConfirmRef}
                     required
                 />
+                {error === 'missing input' && <div className='register-error-missing-fields'>Kérjük töltsd ki az összes beviteli mezőt!</div>}
+                {error === 'passwords different' && <div className='register-error-passwords-match'>A két jelszó nem egyezik.</div>}
 
-                <button onClick={handleSubmit}>Regisztrálok</button>
+                <button onClick={handleSubmit} disabled={loading}>Regisztrálok</button>
             </form>
 
             <div className='sitting-jack-russel'></div>
