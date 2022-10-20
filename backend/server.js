@@ -20,6 +20,9 @@ const port = 5000;
 
 
 
+// - - - - FIREBASE - - - -
+
+
 // - - - - POST to register new user in Firebase - - - - 
 
 app.post('/register', async (req, res) => {
@@ -41,11 +44,10 @@ app.post('/register', async (req, res) => {
                 'password': hash
             }
             newUser.set(user)
-            res.send('New user registered')
+            res.send('new user registered')
         })
     } else {
-        res.status(406).send('username already exists')
-        //res.send('The username already exists in database, cannot register')
+        res.status(406).send('username already exists') //406 - Not Acceptable
     } 
 
 })
@@ -74,15 +76,15 @@ app.post('/login', async (req, res) => {
                         sent: doc.data().sent
                     }
                     res.send(userData) //sending an object to frontend
-                } else {
-                    res.status(401).send('Incorrect password')
+                } else { //Incorrect password
+                    res.sendStatus(401) //Unauthorized
                 }
             } 
         }); 
         
         //what if username is not found in database?   
         if (!userFound) {
-            res.status(400).send('Username is not found in database')
+            res.sendStatus(401) //Unauthorized
         }
     }
 
@@ -90,7 +92,10 @@ app.post('/login', async (req, res) => {
 })
 
 
+
 // - - - - - GET to have all dogs - - - - - 
+
+// JSON FILE
 
 app.get('/api', (req, res) => {
     fs.readFile('dog-names-data.json', 'utf8', function (err, data) {
@@ -99,115 +104,40 @@ app.get('/api', (req, res) => {
     });
 });
 
+//  Firebase 
 
-// - - - - - GET to search dogs - - - - - 
-
-app.get('/api/search', (req, res) => {
-    fs.readFile('dog-names-data.json', 'utf8', function (err, data) { 
-        const dogList = JSON.parse(data);
-        const gender = req.query.gender; // lány / fiú
-        const size = req.query.size; // kicsi / közepes /nagy 
-        const breed = req.query.breed; // OPTIONAL - (default: mindegy)  / keverék / tacskó ...stb 
-        const traits = req.query.traits; // OPTIONAL - 0, 1 or more
+app.get('/api/firebase', async (req, res) => {
+    try {
+        const dogsRef = db.collection('dogs');
+        const snapShot = await dogsRef.get();
+        console.log(snapShot.size)
         
-        let newDogList = []
-        
-        const filterPhysicalAppearance = function (dog) {
-            if (breed === "mindegy") {
-                return (
-                    dog.size === size 
-                    && dog.gender === gender  
-                )
-            } else {
-                return (
-                    dog.size === size 
-                    && dog.gender === gender 
-                    && dog.breed === breed
-                )
-            }
-        }
-        
-        if (req.query.traits == undefined) {
-            //if no personality traits are defined: search all dogs based on physical appearance
-            newDogList = dogList.filter(filterPhysicalAppearance) 
+        //console.log(snapShot.size)
+        let dogList = [];
 
-            } else {
-            //if at least one trait is defined, search also in those
+        snapShot.forEach(doc => {
+            dogList.push(doc.data())
+        });
+        res.send(dogList)
 
-            if (typeof traits === "string") {
-                //if only 1 trait is defined (query parameter is treated as string)
-                newDogList = dogList
-                    .filter(filterPhysicalAppearance)
-                    .filter(dog => {
-                        return dog.traits.includes(traits)
-                    })
-                console.log("only one trait was given")
-                console.log(newDogList)
-        
-            } else {
-                // if more than 1 traits are given
-                console.log("more traits were given")
-                console.log(traits)
-
-                newDogList = dogList
-                    .filter(filterPhysicalAppearance)
-                    .filter(dog => {
-                        return (traits.every(trait => {
-                            return dog.traits.includes(trait)
-                        }))
-                    })
-
-                /* filteredDogList = dogList.filter(filterPhysicalAppearance)
-                filteredDogList.forEach(dog => {
-                    if (traits.every(trait => {
-                        return dog.traits.includes(trait)
-                    })) {
-                        newDogList.push(dog)
-                    }
-
-                }); */
-
-                /*
-                for (const trait of traits) {
-                    // iterate through all traits given
-                    if (newDogList.length === 0) {
-                        //1st iteration
-                        newDogList = dogList
-                            .filter(dog => {
-                                return dog.traits.includes(trait)
-                            })
-                            .filter(filterPhysicalAppearance)
-                            
-                        console.log("at least 2 traits were given, 1st iteration")
-                        console.log(newDogList)
-                        
-                    } else {
-                        // 2nd or more iteration
-                        newDogList = newDogList
-                            .filter(dog => {
-                                return dog.traits.includes(trait)
-                            })
-                        console.log("second (or more) iteration")
-                        console.log(newDogList)
-                    }
-                }
-                */
-
-            }
-        }
-        res.send(newDogList)
-    });
+    } catch(error) {
+        res.send(error)
+    }
 });
+
 
 
 // - - - - POST to save a new dog - - - - 
 
-app.post('/addnewdog', (req, res) => {
+app.post('/addnewdog', async (req, res) => {
     const newDog = JSON.parse(req.body.object)
     console.log(newDog.name)
     console.log(req.files.file)
 
-    fs.readFile('dog-names-data.json', 'utf8', function (err, data) {
+
+    // JSON file - not used anymore
+
+    /* fs.readFile('dog-names-data.json', 'utf8', function (err, data) {
         let dogs = JSON.parse(data);
 
         newDog.id = (dogs[dogs.length - 1].id) + 1;
@@ -220,21 +150,161 @@ app.post('/addnewdog', (req, res) => {
             if (err) throw err;
         });
 
-    })
+    }) */
+
+    
+    // Firebase
+
+    const dogsRef = db.collection('dogs');
+    const snapShot = await dogsRef.get();
+    newDog.id = snapShot.size + 1;
+    newDog.imageSrc = `/dog-images/${req.files.file.name}`;
+
+    try {
+        const response = dogsRef.add(newDog);
+        //itt még hozzá kell adni az user-hez a sent array-be a kutya id-ját
+    } catch (error) {
+        res.send(error)
+    }
+    console.log('dog sent to database')
+
+
+    //file upload - stays the same for now
 
     const uploadPath = '../frontend/public/dog-images/' + req.files.file.name; //feltöltött fájlok helye
 
     req.files.file.mv(uploadPath, function (err) {
         if (err)
             return res.status(500).send(err);
-        res.send('Image uploaded and new dog added!');
+        res.send(`Image uploaded and ${newDog.name} added to database!`);
     })
 
 
-    //res.send("dog received")
 
 })
 
+
+
+// - - - - - GET to search dogs - - - - - 
+
+app.get('/api/search', async (req, res) => {
+    /* fs.readFile('dog-names-data.json', 'utf8', function (err, data) { 
+        const dogList = JSON.parse(data);
+        
+    }); */
+    
+    let dogList = [];
+
+    try {
+        const dogsRef = db.collection('dogs');
+        const snapShot = await dogsRef.get();
+
+        snapShot.forEach(doc => {
+            dogList.push(doc.data())
+        });
+
+    } catch(error) {
+        res.send(error)
+    }
+
+
+    
+    const gender = req.query.gender; // lány / fiú
+    const size = req.query.size; // kicsi / közepes /nagy 
+    const breed = req.query.breed; // OPTIONAL - (default: mindegy)  / keverék / tacskó ...stb 
+    const traits = req.query.traits; // OPTIONAL - 0, 1 or more
+    
+    let newDogList = []
+    
+    const filterPhysicalAppearance = function (dog) {
+        if (breed === "mindegy") {
+            return (
+                dog.size === size 
+                && dog.gender === gender  
+            )
+        } else {
+            return (
+                dog.size === size 
+                && dog.gender === gender 
+                && dog.breed === breed
+            )
+        }
+    }
+    
+    if (req.query.traits == undefined) {
+        //if no personality traits are defined: search all dogs based on physical appearance
+        newDogList = dogList.filter(filterPhysicalAppearance) 
+
+        } else {
+        //if at least one trait is defined, search also in those
+
+        if (typeof traits === "string") {
+            //if only 1 trait is defined (query parameter is treated as string)
+            newDogList = dogList
+                .filter(filterPhysicalAppearance)
+                .filter(dog => {
+                    return dog.traits.includes(traits)
+                })
+            console.log("only one trait was given")
+            console.log(newDogList)
+    
+        } else {
+            // if more than 1 traits are given
+            console.log("more traits were given")
+            console.log(traits)
+
+            newDogList = dogList
+                .filter(filterPhysicalAppearance)
+                .filter(dog => {
+                    return (traits.every(trait => {
+                        return dog.traits.includes(trait)
+                    }))
+                })
+
+            /* filteredDogList = dogList.filter(filterPhysicalAppearance)
+            filteredDogList.forEach(dog => {
+                if (traits.every(trait => {
+                    return dog.traits.includes(trait)
+                })) {
+                    newDogList.push(dog)
+                }
+
+            }); */
+
+            /*
+            for (const trait of traits) {
+                // iterate through all traits given
+                if (newDogList.length === 0) {
+                    //1st iteration
+                    newDogList = dogList
+                        .filter(dog => {
+                            return dog.traits.includes(trait)
+                        })
+                        .filter(filterPhysicalAppearance)
+                        
+                    console.log("at least 2 traits were given, 1st iteration")
+                    console.log(newDogList)
+                    
+                } else {
+                    // 2nd or more iteration
+                    newDogList = newDogList
+                        .filter(dog => {
+                            return dog.traits.includes(trait)
+                        })
+                    console.log("second (or more) iteration")
+                    console.log(newDogList)
+                }
+            }
+            */
+
+        }
+
+    }
+
+    res.send(newDogList)
+    
+
+});
 
 
 

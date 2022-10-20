@@ -11,7 +11,7 @@ import useFetch from '../hooks/useFetch';
 
 export default function Home() {
 
-    const url = './api'
+    const url = './api/firebase'
     const { status, data } = useFetch(url);
 
 

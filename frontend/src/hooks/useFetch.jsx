@@ -9,12 +9,12 @@ export default function useFetch(url) {
     useEffect(() => {
         if (url === '') return; //nem biztos, hogy kell
 
-        let abortHandler = new AbortController()
+        //let abortHandler = new AbortController()
         const fetchData = async () => {
             try {
                 setStatus('fetching');
  
-                const response = await fetch(url, {signal:abortHandler.signal});
+                const response = await fetch(url/* , {signal:abortHandler.signal} */);
                 const data = await response.json();
                 setData(data);
                 setStatus('fetched');
@@ -26,7 +26,7 @@ export default function useFetch(url) {
         };
 
         fetchData();
-        return () => {abortHandler.abort()} //ha megnyitom a komponenst de rögtön elkattintok, abortálja a fetchet
+        //return () => {abortHandler.abort()} //ha megnyitom a komponenst de rögtön elkattintok, abortálja a fetchet
 
 
     }, [url])

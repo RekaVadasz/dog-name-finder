@@ -1,5 +1,7 @@
-import { useState, useEffect, React } from 'react';
+import { useState, useEffect, useContext, React } from 'react';
 //import Select from 'react-select';
+
+import AuthContext from '../../contexts/AuthContext';
 
 
 import './SendName.css';
@@ -19,10 +21,10 @@ const options = [
 export default function SendName({allDogs}) {
 
     //console.log(allDogs)
-
+    const { userData } = useContext(AuthContext);
     
     const [dogBreeds, setDogBreeds] = useState([])
-    const [inputs, setInputs] = useState({gender: 'fiú', size: 'kicsi', traits: []});
+    const [inputs, setInputs] = useState({uploader: userData.username, gender: 'fiú', size: 'kicsi', traits: []});
     const [selectedFile, setSelectedFile] = useState(null);
     
     useEffect(() => {

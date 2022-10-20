@@ -48,14 +48,21 @@
             display: block;
         }
 
-        .register-error-message {
+        .register-error-message, .register-success {
             width: fit-content;
             height: 37px;
             padding: 11px;
             border-radius: 6px;
-            background-color: #FBC2B1;
             position: absolute;
             bottom: 99px;
+        }
+        
+        .register-error-message {
+            background-color: #FBC2B1;
+            }
+
+        .register-success {
+            background-color: #B1FBBD;
         }
         
 

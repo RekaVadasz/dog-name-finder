@@ -48,14 +48,17 @@ export default function Login() {
                 body: JSON.stringify({'username': usernameRef.current.value, 'password': passwordRef.current.value})
             });
 
-            //if : response status vizsgálata
-            const data = await response.json(); //response: object. .json(): produces a JS object
-            //itt miért áll le?
-            setUser(data);
-            logIn();
-            navigate('/profile')
-        } catch { //pl. elmegy a net
-            setError('failed to login')
+            if (response.status === 200) {
+                const data = await response.json(); //response: object. .json(): produces a JS object
+                setUser(data);
+                logIn();
+                navigate('/profile')
+            } else if (response.status === 401) {
+                setError('failed to login')
+            }
+
+        } catch { 
+            setError('network or other problem')
         }
         setLoading(false)
     }

@@ -13,7 +13,7 @@ import { useContext } from 'react';
 
 export default function Profile() {
 
-    const url = './api'
+    const url = './api/firebase'
     const { status, data } = useFetch(url);
     //console.log(status)  
 
@@ -50,7 +50,7 @@ export default function Profile() {
                             <h2>Beküldött nevek</h2>
  
                             {
-                            userData != undefined
+                            userData !== undefined
                             &&
                             data
                                 .filter(dog => {

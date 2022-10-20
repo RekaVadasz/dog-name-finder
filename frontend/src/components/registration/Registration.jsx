@@ -37,8 +37,13 @@ export default function Registration() {
             })
             const status = await response.text()
             setError(status)
+            if (status === 'new user registered') {
+                usernameRef.current.value = null;
+                passwordRef.current.value = null;
+                passwordConfirmRef.current.value = null;
+            }
         } catch {
-            //ez soha nem fog lefutni? 
+            // eg. network problem 
             setError('failed to create account')
         }
         setLoading(false)
@@ -83,10 +88,11 @@ export default function Registration() {
                     ref={passwordConfirmRef}
                     required
                 />
-                
+
                 {error === 'missing input' && <div className='register-error-message'>Kérjük töltsd ki az összes beviteli mezőt!</div>}
                 {error === 'passwords different' && <div className='register-error-message'>A két jelszó nem egyezik.</div>}
                 {error === 'username already exists' && <div className='register-error-message'>Már létező felhasználónév</div>}
+                {error === 'new user registered' && <div className='register-success'>Sikeres regisztráció</div>}
 
                 <button onClick={handleSubmit} disabled={loading}>Regisztrálok</button>
             </form>

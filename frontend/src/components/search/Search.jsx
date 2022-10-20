@@ -26,12 +26,12 @@ export default function Search({allDogs}) {
     const [ url, setUrl ] = useState('') 
 
     const { status, data } = useFetch(url);  
-    //console.log(data)
+    console.log(allDogs)
     //console.log(data.length)
 
     const [dogBreeds, setDogBreeds] = useState([])
     const [inputs, setInputs] = useState({gender: 'fiú', size: 'kicsi', breed: 'mindegy', traits: []});
-    console.log(inputs)
+    //console.log(inputs)
 
     useEffect(() => {
         let dogBreeds = [];
