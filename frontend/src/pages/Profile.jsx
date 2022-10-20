@@ -16,11 +16,10 @@ export default function Profile() {
     const url = './api'
     const { status, data } = useFetch(url);
     //console.log(status)  
-    console.log(data[0])
 
     
     const { userData } = useContext(AuthContext);
-    console.log(userData)
+    //console.log(userData)
     
     return (
         <Layout>

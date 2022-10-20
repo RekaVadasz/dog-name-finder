@@ -9,6 +9,7 @@ export default function Registration() {
     
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    console.log(error)
 
     // - - - - handle submit - - - - 
 
@@ -29,12 +30,15 @@ export default function Registration() {
 
         try {
             setLoading(true)
-            await fetch('./register', {
+            const response = await fetch('./register', {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({'username': usernameRef.current.value, 'password': passwordRef.current.value})
             })
+            const status = await response.text()
+            setError(status)
         } catch {
+            //ez soha nem fog lefutni? 
             setError('failed to create account')
         }
         setLoading(false)
@@ -79,8 +83,10 @@ export default function Registration() {
                     ref={passwordConfirmRef}
                     required
                 />
-                {error === 'missing input' && <div className='register-error-missing-fields'>Kérjük töltsd ki az összes beviteli mezőt!</div>}
-                {error === 'passwords different' && <div className='register-error-passwords-match'>A két jelszó nem egyezik.</div>}
+                
+                {error === 'missing input' && <div className='register-error-message'>Kérjük töltsd ki az összes beviteli mezőt!</div>}
+                {error === 'passwords different' && <div className='register-error-message'>A két jelszó nem egyezik.</div>}
+                {error === 'username already exists' && <div className='register-error-message'>Már létező felhasználónév</div>}
 
                 <button onClick={handleSubmit} disabled={loading}>Regisztrálok</button>
             </form>

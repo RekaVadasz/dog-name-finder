@@ -23,6 +23,7 @@ export default function Login() {
     const passwordRef = useRef();
 
     const [error, setError] = useState('');
+    console.log(error)
     const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
@@ -46,11 +47,14 @@ export default function Login() {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({'username': usernameRef.current.value, 'password': passwordRef.current.value})
             });
-            const data = await response.json();
+
+            //if : response status vizsgálata
+            const data = await response.json(); //response: object. .json(): produces a JS object
+            //itt miért áll le?
             setUser(data);
             logIn();
             navigate('/profile')
-        } catch {
+        } catch { //pl. elmegy a net
             setError('failed to login')
         }
         setLoading(false)
@@ -83,6 +87,8 @@ export default function Login() {
                     />
 
                     {error === 'missing input' && <div className='login-error-missing-fields'>Hiányzó adatok</div>}
+                    {error === 'failed to login' && <div className='login-error-missing-fields'>Hibás felhasználónév vagy jelszó</div>}
+
                     <button onClick={handleSubmit} disabled={loading}>Bejelentkezés</button>
                 </form>
 

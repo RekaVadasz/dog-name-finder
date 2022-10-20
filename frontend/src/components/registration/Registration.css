@@ -50,7 +50,7 @@
   display: block;
 }
 
-#registration-section form .register-error-missing-fields, #registration-section form .register-error-passwords-match {
+#registration-section form .register-error-message {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;

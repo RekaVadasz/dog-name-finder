@@ -44,7 +44,7 @@ app.post('/register', async (req, res) => {
             res.send('New user registered')
         })
     } else {
-        res.sendStatus(418)
+        res.status(406).send('username already exists')
         //res.send('The username already exists in database, cannot register')
     } 
 
@@ -73,16 +73,16 @@ app.post('/login', async (req, res) => {
                         favs: doc.data().favs,
                         sent: doc.data().sent
                     }
-                    res.send(userData)
+                    res.send(userData) //sending an object to frontend
                 } else {
-                    res.send('Incorrect password')
+                    res.status(401).send('Incorrect password')
                 }
             } 
         }); 
         
         //what if username is not found in database?   
         if (!userFound) {
-            res.send('Username is not found in database')
+            res.status(400).send('Username is not found in database')
         }
     }
 
