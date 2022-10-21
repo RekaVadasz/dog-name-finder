@@ -1,19 +1,31 @@
-# Dog Name Finder
+# Doggobase - The Dog Name Finder
 
-The goal of this React application is to collect common Hungarian dog names and create a  database. This way users can search for names based on given characteristics such as gender, size, etc. or simply browse names. 
+The goal of this React application is to collect common Hungarian dog names from users and create a  database. This way users can search for names based on given characteristics such as gender, size, etc. or simply browse names. 
+Logged in users can also add dogs with pictures and save their favourite dogs.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The backend was created with Express. js and data is stored in Cloud Firestore.
 
-## Run React App: 
+<!-- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). -->
 
-In the project directory, you can run:
+## To Run  App: 
+
+In both 'frontend' and 'backend' folder, run: 
+
+### `npm install`
+
+In the 'backend' folder, to start the development server, run: 
+
+### `npm run dev`
+
+In the 'frontend' folder, to start React run: 
 
 ### `npm start`
 
-Runs the app in the development mode.\
+
+<!-- Runs the app in the development mode.\ -->
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
+<!-- The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
 ### `npm test`
@@ -70,3 +82,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ -->
