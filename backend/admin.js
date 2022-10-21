@@ -1,6 +1,6 @@
 var admin = require("firebase-admin");
 
-var serviceAccount = require("./doggobase-development-firebase-adminsdk-lava6-a9a96e0b14.json");
+var serviceAccount = require("./doggobase-development-6ff8f0a63a66.json");
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
