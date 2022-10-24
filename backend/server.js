@@ -5,8 +5,10 @@ const fileUpload = require('express-fileupload');
 const bodyParser = require('body-parser'); // to read POST request body
 const { db } = require('./admin'); // from admin.js, firestore
 const bcrypt = require('bcrypt'); // library to hash passwords
+const cors = require('cors');
 // const path = require('path'); ??
 
+require('dotenv').config();
 
 
 app.use(express.json());
@@ -14,6 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(fileUpload());
 app.use(express.static('../frontend'));
+app.use(cors());
 
 
 const port = 5000;
@@ -311,6 +314,6 @@ app.get('/api/search', async (req, res) => {
 
 // - - - - PORT - - - - 
 
-app.listen(port, () => {
-    console.log(`Example app listening on port http://127.0.0.1:${port}`)
+app.listen(process.env.PORT || port, () => {
+    console.log('You are connected')
 })
