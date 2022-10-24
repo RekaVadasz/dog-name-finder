@@ -44,7 +44,9 @@ app.post('/register', async (req, res) => {
         bcrypt.hash(plainTextPassword, 10, (err, hash) => {
             const user = {
                 'username': username,
-                'password': hash
+                'password': hash, 
+                'favs': [],
+                'sent': []
             }
             newUser.set(user)
             res.send('new user registered')
