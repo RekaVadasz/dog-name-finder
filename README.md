@@ -1,3 +1,9 @@
+# WORK IN PROGRESS! - project deployed but posting new dog does not work temporarily.
+
+## available at: https://courageous-lokum-e6dc50.netlify.app/
+
+Please note that API is slow at first load due to hosting limitations
+
 # Doggobase - The Dog Name Finder
 
 The goal of this React application is to collect common Hungarian dog names from users and create a  database. This way users can search for names based on given characteristics such as gender, size, etc. or simply browse names. 
